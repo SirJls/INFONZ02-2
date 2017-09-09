@@ -1,0 +1,30 @@
+\input{latex-report/include/header}
+
+%%% include custom packages here
+% \usepackage{..}
+
+%%% meta data and settings
+\newcommand{\lrTitle}{Report Title}
+\newcommand{\lrAuthor}{Report Author}
+\newcommand{\lrDate}{\today}
+
+% \toggletrue{lrHideToc}               % hide table of contents
+% \toggletrue{lrHideTitle}             % show title heading
+% \toggletrue{lrSmallHeadings}         % use small font size for (sub)sections
+% \toggletrue{lrHeaderDate}            % show the date in the header
+% \toggletrue{lrShowCover}             % show front cover ./fig/cover.jpg
+
+
+\begin{document}
+
+\section{First section}
+Some text and an important definition
+\begin{align}
+    f(x) = 42 + \integralb{0}{x}{s} g(s)
+\end{align}
+where $g(s)=a \bb{1 + \ef{i s}}$.
+
+\subsection{First subsection}
+And some more text.
+
+\end{document}
