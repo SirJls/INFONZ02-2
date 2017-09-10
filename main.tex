@@ -1,30 +1,97 @@
 \input{latex-report/include/header}
 
 %%% include custom packages here
-% \usepackage{..}
+\usepackage[dutch]{babel}
+\usepackage{csquotes}
+\usepackage[titletoc,title]{appendix}
+\usepackage{amsthm}
+\usepackage{bookmark} % handles the encoding in the .out file
+\addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
+
+\renewcommand{\appendixtocname}{Opdrachten}
+
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sortlocale=nl_NL,
+    url=false,
+    doi=false,
+    eprint=false
+]{biblatex}
+
+\addbibresource{main.bib}
 
 %%% meta data and settings
-\newcommand{\lrTitle}{Report Title}
-\newcommand{\lrAuthor}{Report Author}
+\newcommand{\lrTitle}{Bouwplan}
+\newcommand{\lrAuthor}{\renewcommand\@d{{%
+    \vspace{-\baselineskip}%
+    \large\centering
+    \begin{tabular}{@{}c@{}}
+      Sjors Sparreboom\textsuperscript{1} \\
+      \normalsize 0890040
+    \end{tabular}%
+    \quad en\quad
+    \begin{tabular}{@{}c@{}}
+      Johan Bos\textsuperscript{2} \\
+      \normalsize 0878090
+    \end{tabular}
+
+    \bigskip
+
+    \textsuperscript{1}CMI, Hogeschool Rotterdam \par
+    \textsuperscript{2}CMI, Hogeschool Rotterdam
+
+    \bigskip
+
+    \today
+  }}
+}
 \newcommand{\lrDate}{\today}
 
-% \toggletrue{lrHideToc}               % hide table of contents
+\toggletrue{lrHideToc}               % hide table of contents
 % \toggletrue{lrHideTitle}             % show title heading
-% \toggletrue{lrSmallHeadings}         % use small font size for (sub)sections
+\toggletrue{lrSmallHeadings}         % use small font size for (sub)sections
 % \toggletrue{lrHeaderDate}            % show the date in the header
-% \toggletrue{lrShowCover}             % show front cover ./fig/cover.jpg
-
+\toggletrue{lrShowCover}             % show front cover ./fig/cover.jpg
 
 \begin{document}
+\nocite{*}
 
-\section{First section}
-Some text and an important definition
-\begin{align}
-    f(x) = 42 + \integralb{0}{x}{s} g(s)
-\end{align}
-where $g(s)=a \bb{1 + \ef{i s}}$.
+\section{Stelling}
 
-\subsection{First subsection}
-And some more text.
+Monadic paser combinators zijn zeer geschikt voor het prototypen van compilers
+voor domein specifieke talen.
+
+\section{Bouwplan}
+\label{appendix:opdrachten}
+\begin{table}[h]
+  \centering
+  \resizebox{\textwidth}{!}{%
+    \begin{tabular}{rl>{\footnotesize}p{5cm}lllll}
+      \hline
+      \multicolumn{1}{c}{\textbf{Deel}} &
+      \multicolumn{1}{c}{\textbf{Onderwerp}} &
+      \multicolumn{1}{c}{\textbf{Kern/Doel}} &
+      \multicolumn{1}{c}{\textbf{Trefwoorden}} &
+      \multicolumn{1}{c}{\textbf{Factchecker}} \\ \hline
+      Inleiding & Monadic parser combinators & Introductie over monadic parser
+      combinators. & & Johan Bos \\
+      Midden 1 & Syntactic analysis & Hoe Monadic parser combinators kunnen
+      bijdragen aan het verbeteren van syntactic analysis. & Syntactic analysis
+      & Sjors Sparreboom \\
+      Midden 2 & Parser combinators & De basis ideeën van combinator parsing. &
+      Combinators, functioneel programmeren & Johan Bos \\
+      Midden 3 & Parsers en monads & Attentie voor Monadische eigenschappen van
+      combinator parsers. & Monads, repetitie & Sjors Sparreboom \\
+      Midden 4 & Protoyping en voorbeelden. & & & Johan bos \\
+      Slot & Monadic parser combinators Parser Combinators & Afsluiting en
+      conclusie. & & Sjors
+      Sparreboom en Johan Bos \\ \hline
+    \end{tabular}%
+  }
+\end{table}
+
+
+% \printbibliography
 
 \end{document}
