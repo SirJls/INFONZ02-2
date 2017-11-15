@@ -1,3 +1,6 @@
-[submodule "latex-report"]
-	path = latex-report
+[submodule "Bouwplan/latex-report"]
+	path = Bouwplan/latex-report
+	url = https://github.com/SirJls/latex-report.git
+[submodule "Report/latex-report"]
+	path = Report/latex-report
 	url = https://github.com/SirJls/latex-report.git

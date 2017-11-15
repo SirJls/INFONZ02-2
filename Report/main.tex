@@ -1,0 +1,64 @@
+\input{latex-report/include/header}
+
+%%% include custom packages here
+\usepackage[dutch]{babel}
+\usepackage{csquotes}
+\usepackage[titletoc,title]{appendix}
+\usepackage{amsthm}
+\usepackage{bookmark} % handles the encoding in the .out file
+\addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
+
+\renewcommand{\appendixtocname}{Opdrachten}
+
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sortlocale=nl_NL,
+    url=false,
+    doi=false,
+    eprint=false
+]{biblatex}
+
+\addbibresource{main.bib}
+
+%%% meta data and settings
+\newcommand{\lrTitle}{Bouwplan}
+\newcommand{\lrAuthor}{\renewcommand\@d{{%
+    \vspace{-\baselineskip}%
+    \large\centering
+    \begin{tabular}{@{}c@{}}
+      Sjors Sparreboom\textsuperscript{1} \\
+      \normalsize 0890040
+    \end{tabular}%
+    \quad en\quad
+    \begin{tabular}{@{}c@{}}
+      Johan Bos\textsuperscript{2} \\
+      \normalsize 0878090
+    \end{tabular}
+
+    \bigskip
+
+    \textsuperscript{1}CMI, Hogeschool Rotterdam \par
+    \textsuperscript{2}CMI, Hogeschool Rotterdam
+
+    \bigskip
+
+    \today
+  }}
+}
+\newcommand{\lrDate}{\today}
+
+\toggletrue{lrHideToc}               % hide table of contents
+% \toggletrue{lrHideTitle}             % show title heading
+\toggletrue{lrSmallHeadings}         % use small font size for (sub)sections
+% \toggletrue{lrHeaderDate}            % show the date in the header
+\toggletrue{lrShowCover}             % show front cover ./fig/cover.jpg
+
+\begin{document}
+\nocite{*}
+
+
+
+% \printbibliography
+
+\end{document}

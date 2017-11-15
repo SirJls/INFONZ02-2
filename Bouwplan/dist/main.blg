@@ -1,0 +1,15 @@
+[0] Config.pm:354> INFO - This is Biber 2.7
+[0] Config.pm:357> INFO - Logfile is 'dist/main.blg'
+[27] biber:303> INFO - === zo sep 10, 2017, 16:14:18
+[41] Biber.pm:359> INFO - Reading 'dist/main.bcf'
+[127] Biber.pm:832> INFO - Using all citekeys in bib section 0
+[145] Biber.pm:3670> INFO - Processing section 0
+[167] Biber.pm:3840> INFO - Looking for bibtex format file 'main.bib' for section 0
+[169] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
+[174] bibtex.pm:1292> INFO - Found BibTeX data source 'main.bib'
+[204] UCollate.pm:68> INFO - Overriding locale 'nl_NL' defaults 'variable = shifted' with 'variable = non-ignorable'
+[204] UCollate.pm:68> INFO - Overriding locale 'nl_NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[204] Biber.pm:3499> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'nl_NL'
+[204] Biber.pm:3505> INFO - No sort tailoring available for locale 'nl_NL'
+[210] bbl.pm:608> INFO - Writing 'dist/main.bbl' with encoding 'UTF-8'
+[211] bbl.pm:712> INFO - Output to dist/main.bbl

@@ -1,0 +1,3 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\select@language {dutch}
+\contentsline {section}{\numberline {1}Opdrachten}{3}{section.1}
