@@ -1,15 +1,65 @@
-[0] Config.pm:354> INFO - This is Biber 2.7
-[0] Config.pm:357> INFO - Logfile is 'dist/main.blg'
-[27] biber:303> INFO - === zo sep 10, 2017, 16:14:18
-[41] Biber.pm:359> INFO - Reading 'dist/main.bcf'
-[127] Biber.pm:832> INFO - Using all citekeys in bib section 0
-[145] Biber.pm:3670> INFO - Processing section 0
-[167] Biber.pm:3840> INFO - Looking for bibtex format file 'main.bib' for section 0
-[169] bibtex.pm:1435> INFO - Decoding LaTeX character macros into UTF-8
-[174] bibtex.pm:1292> INFO - Found BibTeX data source 'main.bib'
-[204] UCollate.pm:68> INFO - Overriding locale 'nl_NL' defaults 'variable = shifted' with 'variable = non-ignorable'
-[204] UCollate.pm:68> INFO - Overriding locale 'nl_NL' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[204] Biber.pm:3499> INFO - Sorting list 'none/global/' of type 'entry' with scheme 'none' and locale 'nl_NL'
-[204] Biber.pm:3505> INFO - No sort tailoring available for locale 'nl_NL'
-[210] bbl.pm:608> INFO - Writing 'dist/main.bbl' with encoding 'UTF-8'
-[211] bbl.pm:712> INFO - Output to dist/main.bbl
+This is BibTeX, Version 0.99d (TeX Live 2017/Arch Linux)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: main.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
+Reallocated singl_function (elt_size=8) to 100 items from 50.
+Database file #1: main.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty year in FromToysToTools
+Warning--empty year in MonadicParserCombinators
+Warning--empty year in HigherOrderfunctionsForParsing
+Warning--empty year in FunctionalPearls
+Warning--empty year in TheEssennceOfFunctionalProgramming
+Warning--empty year in MonadsForFunctionalProgramming
+Warning--empty year in WhyFunctionalProgrammingMatters
+Warning--empty year in Parsec
+
+Done.
+You've used 8 entries,
+            4087 wiz_defined-function locations,
+            853 strings with 8174 characters,
+and the built_in function-call counts, 3046 in all, are:
+= -- 237
+> -- 42
+< -- 0
++ -- 20
+- -- 10
+* -- 131
+:= -- 578
+add.period$ -- 16
+call.type$ -- 8
+change.case$ -- 8
+chr.to.int$ -- 0
+cite$ -- 16
+duplicate$ -- 270
+empty$ -- 245
+format.name$ -- 12
+if$ -- 625
+int.to.chr$ -- 0
+int.to.str$ -- 8
+missing$ -- 74
+newline$ -- 47
+num.names$ -- 8
+pop$ -- 176
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 214
+stack$ -- 0
+substring$ -- 8
+swap$ -- 166
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 8
+warning$ -- 8
+while$ -- 8
+width$ -- 9
+write$ -- 86
+(There were 8 warnings)

@@ -1,64 +1,199 @@
-\input{latex-report/include/header}
+%------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%------------------------------------------------------------------------------
 
-%%% include custom packages here
-\usepackage[dutch]{babel}
-\usepackage{csquotes}
+\documentclass[twoside,twocolumn]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template
+
+\usepackage[sc]{mathpazo} % Use the Palatino font
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[dutch]{babel} % Language hyphenation and typographical rules
 \usepackage[titletoc,title]{appendix}
-\usepackage{amsthm}
-\usepackage{bookmark} % handles the encoding in the .out file
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+\usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+
+\usepackage{enumitem} % Customized lists
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape} % Set the abstract itself to small italic text
+
+\usepackage{titlesec} % Allows customization of titles
+\renewcommand\thesection{\Roman{section}} % Roman numerals for the sections
+\renewcommand\thesubsection{\roman{subsection}} % roman numerals for subsections
+\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{} % Change the look of the section titles
+\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{} % Change the look of the section titles
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyfoot[RO,LE]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
 \addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
 
-\renewcommand{\appendixtocname}{Opdrachten}
-
 \usepackage[
-    backend=biber,
-    style=ieee,
-    sortlocale=nl_NL,
-    url=false,
-    doi=false,
-    eprint=false
-]{biblatex}
+     pdfusetitle
+    ,colorlinks=true
+    ,citecolor=link
+    ,linkcolor=link
+    ,pdfborder={0 0 0}
+    ,unicode=true
+]{hyperref}
 
-\addbibresource{main.bib}
+%------------------------------------------------------------------------------
+%	TITLE SECTION
+%------------------------------------------------------------------------------
 
-%%% meta data and settings
-\newcommand{\lrTitle}{Bouwplan}
-\newcommand{\lrAuthor}{\renewcommand\@d{{%
-    \vspace{-\baselineskip}%
-    \large\centering
-    \begin{tabular}{@{}c@{}}
-      Sjors Sparreboom\textsuperscript{1} \\
-      \normalsize 0890040
-    \end{tabular}%
-    \quad en\quad
-    \begin{tabular}{@{}c@{}}
-      Johan Bos\textsuperscript{2} \\
-      \normalsize 0878090
-    \end{tabular}
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
 
-    \bigskip
-
-    \textsuperscript{1}CMI, Hogeschool Rotterdam \par
-    \textsuperscript{2}CMI, Hogeschool Rotterdam
-
-    \bigskip
-
-    \today
-  }}
+\pretitle{\begin{center}\Huge\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Accuraatheid van het aanleren van functioneel programmeren aan studenten
+door het gebruikt van Parser Combinators. } % Article title
+\author{%
+\textsc{Sjors Sparreboom} \\[1ex] % Your name
+\normalsize Hogeschool Rotterdam \\ % Your institution
+\normalsize \href{mailto:0890040@hr.nl}{0890040@hr.nl} \\[2ex] % Your email address
+%\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+\textsc{Johan Bos} \\[1ex] % Second author's name
+\normalsize Hogeschool Rotterdam \\ % Second author's institution
+\normalsize \href{mailto:0878090@hr.nl}{0878090@hr.nl} % Second author's email address
 }
-\newcommand{\lrDate}{\today}
+\date{\today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+% TODO: Improve abstract <20-11-17, SirJls> %
+\begin{abstract}
+\noindent
+   Rapportage over het onderzoeken, hoe parser combinators bij kunnen dragen
+   aan het aanleren van functioneel programmeren aan studenten. Ook wordt er
+   gekeken hoe of parser combinators een te overwegen manier zijn om moeilijke
+  concepten zoals "moands" en "applicatives" aan te leren.
+\end{abstract}
+}
 
-\toggletrue{lrHideToc}               % hide table of contents
-% \toggletrue{lrHideTitle}             % show title heading
-\toggletrue{lrSmallHeadings}         % use small font size for (sub)sections
-% \toggletrue{lrHeaderDate}            % show the date in the header
-\toggletrue{lrShowCover}             % show front cover ./fig/cover.jpg
+%------------------------------------------------------------------------------
 
 \begin{document}
 \nocite{*}
 
+% Print the title
+\maketitle
 
+%------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%------------------------------------------------------------------------------
 
-% \printbibliography
+\section{Inleiding}
+\lettrine[nindent=0em,lines=3]{I} n de wereld van functioneel programmeren,
+zijn parser combinators, al enige tijd bekend als een uitstekende manier voor
+de ontwikkeling van parsers, compilers en domein specifieke talen. Zo zijn
+parser combinators opgebouwd als kleine functies die vervolgens door
+compositie een geheel nieuwe combinator of parser geven. Dit is erg krachtig
+aangezien grote veranderingen in de parsers makkelijk aangebracht kunnen
+worden, wat ze zeer geschikt maar voor prototypen van parsers en compilers.
+
+Door middel van dit onderzoek wordt er gekeken of de toepassing van parser
+combinators breder zijn dan alleen het prototypen van parsers en compilers.
+Aantonend dat de theorie van functioneel programmeren, duidelijk aangeleerd kan
+worden aan studenten door ze bekend te maken met de theorie achter parser
+combinators. Vervolgens zal er een klein begin gemaakt worden met een parser
+combinator bibliotheek die gemakkelijk uitbreidbaar is voor meer complexere
+grammatica. Deze bibliotheek kan ook gebruikt worden als referentie materiaal
+voor docenten om studenten hun eigen parser combinator bibliotheek te laten
+implementeren.
+
+%------------------------------------------------------------------------------
+
+\section{Generieke Termen}
+parser combinators, deterministic, parser generators, lazy evaluation.
+
+%------------------------------------------------------------------------------
+
+\section{Methode}
+
+\subsection{Informatie Winning Proces}
+Om relevante studie materiaal te identificeren is er voor een multimodale
+zoek strategie gekozen, waarbij zowel elektronische als manuele zoekopdrachten
+werden verricht. Het literatuurzoekprocess bestaat uit twee fases. In de eerste
+fase gaat het over verwezenlijken van voorafgaande zoekresultaten, om de
+onderzoeksvraag the kunnen bijstellen en de sleutel concepten te kunnen
+bepalen. In deze fase hebben wij onze onderzoeksvraag bijgesteld om ervoor te
+zorgen dat functioneel programmeren werd inbegrepen. De hoofd zoekresultaten
+werden verkregen in de tweede fase (November, 2017).
+
+Elektronische zoekopdrachten zijn uitgevoerd, gebruikmakend van de volgende
+zoekmachines: Google Scholar, Research Gate, Academic Microsoft, CiteSeerX.
+Onder de zoektermen die werden gebruikt om deze bibliografische databanken te
+doorzoeken waren  "functional programming", "parser combinators",
+"teaching functional programming" en "parsing". Voor een volledige lijst van
+zoektermen zie \cref{appendix:keywords}.
+
+% TODO: Explain the procedure about how we got the knowledge <20-11-17, SirJls> %
+\subsection{Procedure}
+\blindtext
+
+\subsection{Inclusie Criteria \& Exclusie Criteria}
+\textbf{Algemene criteria} \quad Voor het identificeren van onderzoeken die
+de 'accuraatheid van het aanleren van functionele programmeertalen door parser
+combinators', rapporteren, werd er gezocht naar 'parser combinators' en
+'studenten'. Onderzoeken die de accuraatheid van het aanleren van
+functioneel programmeren meten, anders dan door gebruik van parser combinators
+zijn uitgesloten.
+
+% TODO: Proceed with the inclusion material
+
+%------------------------------------------------------------------------------
+
+\section{Resultaten}
+
+\blindtext % Dummy text
+
+\blindtext % Dummy text
+
+%------------------------------------------------------------------------------
+
+% TODO: Invoke a discussion and associate conclusion inside disussion <20-11-17, SirJls> %
+
+\section{Discussion}
+
+\blindtext % Dummy text
+
+%------------------------------------------------------------------------------
+%	REFERENCE LIST
+%------------------------------------------------------------------------------
+
+\bibliographystyle{IEEEtran}
+\bibliography{main}
+
+\clearpage
+
+%------------------------------------------------------------------------------
+%	APPENDIX
+%------------------------------------------------------------------------------
+\appendix
+
+% TODO: Fill in keywords inside appendix <20-11-17, SirJls> %
+\begin{appendices}
+  \section{Zoektermen}
+  \label{appendix:keywords}
+  De volgende zoektermen waren ingevoerd in de elektronische databanken:
+
+  \blindtext % Dummy text
+\end{appendices}
+
+%------------------------------------------------------------------------------
 
 \end{document}
