@@ -37,7 +37,7 @@
 \pagestyle{fancy} % All pages have headers and footers
 \fancyhead{} % Blank out the default header
 \fancyfoot{} % Blank out the default footer
-\fancyhead[C]{Running title $\bullet$ May 2016 $\bullet$ Vol. XXI, No. 1} % Custom header text
+\fancyhead[C]{Het functionele paradigma is de toekomst} % Custom header text
 \fancyfoot[RO,LE]{\thepage} % Custom footer text
 
 \usepackage{titling} % Customizing the title section
@@ -61,8 +61,7 @@
 
 \pretitle{\begin{center}\Huge\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Accuraatheid van het aanleren van functioneel programmeren aan studenten
-door het gebruikt van Parser Combinators. } % Article title
+\title{Het functionele paradigma is de toekomst.} % Article title
 \author{%
 \textsc{Sjors Sparreboom} \\[1ex] % Your name
 \normalsize Hogeschool Rotterdam \\ % Your institution
@@ -74,13 +73,21 @@ door het gebruikt van Parser Combinators. } % Article title
 }
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
-% TODO: Improve abstract <20-11-17, SirJls> %
 \begin{abstract}
 \noindent
-   Rapportage over het onderzoeken, hoe parser combinators bij kunnen dragen
-   aan het aanleren van functioneel programmeren aan studenten. Ook wordt er
-   gekeken hoe of parser combinators een te overwegen manier zijn om moeilijke
-  concepten zoals "moands" en "applicatives" aan te leren.
+  Met de komst van het internet, big data, cloud computing en de
+  toenemende capaciteit van computers is er vernieuwde interesse in de
+  functionele programmeertalen. Dit rapport bekijkt samen met de lezer de voor
+  en nadelen bij de stelling
+  \textit{``Het functionele paradigma is de toekomst.''} Dit gebeurt op basis
+  van een literatuuronderzoek naar de relaties en verschillen van de heersende
+  programmeerparadigma's in de industrie. Het onderzoek beperkt zich tot het
+  imperatieve en functionele paradigma. Om het functionele paradigma en zijn
+  plaats binnen de informatica beter te kunnen begrijpen is er binnen dit
+  onderzoek van een minimale kennisgeving van de heersende
+  programmeerparadigma's in de industrie uitgegaan. Ook is kennis van
+  programmeren wenselijk, maar kan het onderzoek ook prima zonder deze kennis
+  worden gevolgd.
 \end{abstract}
 }
 
@@ -97,78 +104,141 @@ door het gebruikt van Parser Combinators. } % Article title
 %------------------------------------------------------------------------------
 
 \section{Inleiding}
-\lettrine[nindent=0em,lines=3]{I} n de wereld van functioneel programmeren,
-zijn parser combinators, al enige tijd bekend als een uitstekende manier voor
-de ontwikkeling van parsers, compilers en domein specifieke talen. Zo zijn
-parser combinators opgebouwd als kleine functies die vervolgens door
-compositie een geheel nieuwe combinator of parser geven. Dit is erg krachtig
-aangezien grote veranderingen in de parsers makkelijk aangebracht kunnen
-worden, wat ze zeer geschikt maar voor prototypen van parsers en compilers.
+\lettrine[nindent=0em,lines=3]{V}oor het maken van programma's wordt er gebruik
+gemaakt van programmeertalen.  Door het gebruik van een programmeertaal is het
+mogelijk voor een programmeur om een computer te voorzien van instructies en zo
+de gigantische rekenkracht van het apparaat te benutten. Er zijn door de jaren
+heen veel programmeertalen ontwikkelt. Sommige revolutionair en vernieuwend,
+andere een uitbreiding op reeds bestaande talen. Veel van deze programmeertalen
+delen dezelfde kenmerken en kunnen worden geclassificeerd onder een
+paradigma.
 
-Door middel van dit onderzoek wordt er gekeken of de toepassing van parser
-combinators breder zijn dan alleen het prototypen van parsers en compilers.
-Aantonend dat de theorie van functioneel programmeren, duidelijk aangeleerd kan
-worden aan studenten door ze bekend te maken met de theorie achter parser
-combinators. Vervolgens zal er een klein begin gemaakt worden met een parser
-combinator bibliotheek die gemakkelijk uitbreidbaar is voor meer complexere
-grammatica. Deze bibliotheek kan ook gebruikt worden als referentie materiaal
-voor docenten om studenten hun eigen parser combinator bibliotheek te laten
-implementeren.
+Het is daarom van essentieel belang dat een keuze voor een paradigma
+afhankelijk is van een correcte probleem- of doelstelling. Zo wordt er vanuit
+de academische en wetenschappelijke hoek al jaren aangezet tot een transitie
+naar het functionele paradigma, maar worden functionele programmeertalen, zoals
+Haskell en Lisp vaak als een onconventionele, onwerkbare vorm van software
+ontwikkeling gezien. Echter wordt er momenteel met de komst van big data en
+cloud computing een nieuwe effici\"ente manier van dataverwerking toegepast die
+veelal gebruik maakt van parallel, gelijktijdig en gedistribueerd programmeren.
 
-%------------------------------------------------------------------------------
-
-\section{Generieke Termen}
-parser combinators, deterministic, parser generators, lazy evaluation.
-
-%------------------------------------------------------------------------------
-
-\section{Methode}
-
-\subsection{Informatie Winning Proces}
-Om relevante studie materiaal te identificeren is er voor een multimodale
-zoek strategie gekozen, waarbij zowel elektronische als manuele zoekopdrachten
-werden verricht. Het literatuurzoekprocess bestaat uit twee fases. In de eerste
-fase gaat het over verwezenlijken van voorafgaande zoekresultaten, om de
-onderzoeksvraag the kunnen bijstellen en de sleutel concepten te kunnen
-bepalen. In deze fase hebben wij onze onderzoeksvraag bijgesteld om ervoor te
-zorgen dat functioneel programmeren werd inbegrepen. De hoofd zoekresultaten
-werden verkregen in de tweede fase (November, 2017).
-
-Elektronische zoekopdrachten zijn uitgevoerd, gebruikmakend van de volgende
-zoekmachines: Google Scholar, Research Gate, Academic Microsoft, CiteSeerX.
-Onder de zoektermen die werden gebruikt om deze bibliografische databanken te
-doorzoeken waren  "functional programming", "parser combinators",
-"teaching functional programming" en "parsing". Voor een volledige lijst van
-zoektermen zie \cref{appendix:keywords}.
-
-% TODO: Explain the procedure about how we got the knowledge <20-11-17, SirJls> %
-\subsection{Procedure}
-\blindtext
-
-\subsection{Inclusie Criteria \& Exclusie Criteria}
-\textbf{Algemene criteria} \quad Voor het identificeren van onderzoeken die
-de 'accuraatheid van het aanleren van functionele programmeertalen door parser
-combinators', rapporteren, werd er gezocht naar 'parser combinators' en
-'studenten'. Onderzoeken die de accuraatheid van het aanleren van
-functioneel programmeren meten, anders dan door gebruik van parser combinators
-zijn uitgesloten.
-
-% TODO: Proceed with the inclusion material
+Deze oplossingen schikken zich vaak voor een functionele aanpak van het
+probleem, maar de achterliggende infrastructuur is vaak imperatief en
+objectgeori\"enteerd waardoor een combinatie veelal uitgesloten is, maar wel
+wenselijk.
 
 %------------------------------------------------------------------------------
 
-\section{Resultaten}
+\section{Middenstuk}
 
-\blindtext % Dummy text
+In dit middenstuk zal er een korte uitleg worden gegeven wat de imperatieve en
+functionele programmeerparadigma's inhouden. Opvolgend zal er worden gekeken
+naar twee kanten van deze stelling, namelijk de voor en tegenargumentatie.
 
-\blindtext % Dummy text
+Om de plaats van het functionele programmeerparadigma beter te kunnen
+begrijpen, zal er eerst gekeken moeten worden naar de andere dominante
+paradigma's in de industrie. De paradigma's die kort besproken zullen worden
+zijn: het imperatieve en functionele programmeerparadigma.
 
 %------------------------------------------------------------------------------
 
-% TODO: Invoke a discussion and associate conclusion inside disussion <20-11-17, SirJls> %
+\subsection{Imperatief programmeren}
+Imperatief programmeren houdt in dat een programma een structuur beschrijft
+volgens het Turingmodel. Dit programma wordt door de computer ingelezen in het
+geheugen om het in kleine delen sequentieel uit te voeren. De tussentijdse
+berekeningen worden in een imperatieve taal als data opgeslagen in het
+geheugen. Deze data kan vervolgens worden opgehaald en gemuteerd door elk
+volgende instructie die toegang heeft tot deze data, totdat er een antwoord
+wordt gepresenteerd. Imperatieve programmeertalen zijn door deze eigenschap om
+de huidige staat van het programma aan te passen zeer geschikt voor het
+programmeren van computer hardware. Zo zijn CPU's imperatieve executie machines
+en compilers vertalen direct naar deze taal. Dit is de reden dat imperatief
+programmeren hedendaags de gangbare manier van programmeren is.
 
-\section{Discussion}
+\subsection{Functioneel programmeren }
+Functioneel programmeren is een paradigma dat niet nieuw is, maar al sinds de
+jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het
+lambda calculus, wat Turingvolledig is. Kenmerkend voor functioneel
+programmeren is het programmeren met functies, het vermijden van globale staat,
+de niet muteerbare data structuren en een executie model waarin de evaluatie
+volgorde niet uitmaakt.
 
+%------------------------------------------------------------------------------
+
+\section{Algemene voordelen functioneel programmeren}
+
+Nu er kort uitleg is gegeven over imperatieve en functionele talen kunnen we
+kijken naar de verschillen, in het bijzonder de voor en nadelen. Om de
+verschillen echter goed te begrijpen is het handig om te weten dat op het
+moment van schrijven van dit rapport het dominante paradigma in de industrie de
+imperatieve manier van programmeren is. Het is echter pas sinds kort dat er
+hernieuwde interesse is ontstaan in de functionele talen vanwege de
+expressiviteit en het vermogen van deze talen om foutloos gelijktijdig
+programma's uit te voeren. Deze eigenschappen sluiten heel goed aan bij de
+belangen van veel bedrijven die met de komst van het internet,
+cloud computing en big data over data beschikken die zo omvangrijk is dat
+de traditionele data verwerkingssoftware niet toereikend genoeg is om hiermee
+om te gaan. De oplossing: het verdelen van de data over verschillende
+multi-core processoren, zodat er betere prestaties kunnen worden behaald en de
+verwerking sneller verloopt. Dit heet in de informatica gedistribueerd
+programmeren.
+
+Gedistribueerd programmeren is een complex onderwerp in de informatica en niet
+zonder enige risico's. Doordat er meerdere multi-core processoren aangesproken
+worden, wat tevens gelijktijdig kan gebeuren, moet er goed nagedacht worden
+over de evaluatie volgorde. Doordat de aangesproken processoren niet dezelfde
+throughput hebben zijn uitspraken over ruimte en tijd complexiteit moeilijk
+voor een programmeur. Zeker als we er vanuit kunnen gaan dat het meest
+gebruikte paradigma in de industrie de imperatieve stijl van programmeren is.
+Het imperatief programmeren is inherent sequentieel en data is muteerbaar wat
+het correct uitvoeren van een programma nog meer bemoeilijkt door eventuele
+data races. Om data races te voorkomen zijn er in vele imperatieve
+programmeertalen locks of mutexes ge\"introduceerd met als doel het correct
+afhandelen van de executievolgorde van een imperatief programma. Echter zijn de
+ge\"introduceerde oplossingen niet zonder bijwerkingen, denk aan de deadlock.
+
+Functionele programmeertalen hebben echter veel van deze problemen niet. Zo
+zijn functionele talen niet afhankelijk van de evaluatie volgorde en zijn er
+geen locks of mutexes, wat ze uitsluit voor deadlocks. Dit maakt het
+mogelijk om verschillende stukken van een expressie parallel te evalueren,
+wat een pre is voor gedistribueerd programmeren. Tevens is de data in de
+functionele programmeertalen niet muteerbaar, wat inhoudt dat er geen
+bijwerkingen kunnen ontstaan, waardoor data races niet tot nauwelijks voor
+kunnen komen in deze talen.
+
+De functionele programmeertalen zijn ook erg schaalbaar, zo zijn bepaalde
+algoritmes in functionele programmeertaal vaak minder regels code dan in een
+imperatieve taal, doordat functionele talen vaak een hogere abstractie
+hanteren, denk hierbij aan het gebruik van hogere graads functies. Dit zorgt
+voor een duidelijker en beter herbruikbaar systeem, waar elk stuk code een
+eigen, gescheiden verantwoordelijkheid heeft, dit heet modulariteit.
+
+%------------------------------------------------------------------------------
+
+\section{Algemene nadelen functioneel programmeren}
+Dat functioneel programmeren tegenwoordig voor steeds meer situaties en
+problemen een gangbare oplossing is, hebben we besproken. Echter zijn er ook
+situaties en problemen die zich niet schikken voor een functionele oplossing.
+E\a'en van deze situaties is als er programma's (ook wel firmware genoemd)
+moeten worden geschreven voor embedded systemen. Embedded systemen zijn vaak
+gemaakt voor het uitvoeren van specifieke taken, dit in tegenstelling tot
+een computer voor algemeen gebruik. Doordat embedded systemen veelal gemaakt
+zijn voor het uitvoeren van specifieke taken zijn er veel meer
+processorarchitecturen. Deze grote verschillen in processorarchitectuur en de
+beperkte interne geheugen die deze chips vaak hebben, maakt ze niet erg
+geschikt voor het schrijven van firmware in een functionele programmeertaal,
+aangezien functionele talen meer geheugen gebruiken dan andere paradigma's.
+
+Ook de garbage collector van de functionele talen kan worden gezien als een
+enorme beperking aangezien de programmeur het onderliggende geheugen niet kan
+controleren. Zo zijn de meeste functionele programmeertalen aanzienlijk
+langzamer zonder een goed geoptimaliseerde compiler ten opzichte van
+imperatieve programmeertalen. Veel van dit verlies in snelheid kan worden
+verklaard door de focus op abstractie van de functionele talen. Door dit hogere
+niveau van programmeren duurt een translatie naar machine code door de compiler
+vaak langer dan de translatie van imperatieve talen.
+
+\section{Conclusie}
 \blindtext % Dummy text
 
 %------------------------------------------------------------------------------
@@ -185,13 +255,7 @@ zijn uitgesloten.
 %------------------------------------------------------------------------------
 \appendix
 
-% TODO: Fill in keywords inside appendix <20-11-17, SirJls> %
 \begin{appendices}
-  \section{Zoektermen}
-  \label{appendix:keywords}
-  De volgende zoektermen waren ingevoerd in de elektronische databanken:
-
-  \blindtext % Dummy text
 \end{appendices}
 
 %------------------------------------------------------------------------------
