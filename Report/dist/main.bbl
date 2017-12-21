@@ -26,8 +26,8 @@ P.~Wadler, ``The essence of functional programming,'' University of Glasgow,
   Tech. Rep., 1992.
 
 \bibitem{Pro2}
-J.~Hughes, ``Monads for functional programming,'' University of Glasgow, Tech.
-  Rep., 1989.
+J.~Hughes, ``Why functional programming matters,'' Institutionen f\"{o}r
+  Datavetenskap, Tech. Rep., 1989.
 
 \bibitem{Pro3}
 \BIBentryALTinterwordspacing
@@ -46,7 +46,7 @@ P.~Wadler, ``Why no one uses functional languages1,'' Bell Laboratories, Lucent
   Technologies, Tech. Rep., 1998.
 
 \bibitem{Pro6}
-M.~Lipvača, \emph{Learn You a Haskell for Great Good!}\hskip 1em plus 0.5em
+M.~Lipva\v{c}a, \emph{Learn You a Haskell for Great Good!}\hskip 1em plus 0.5em
   minus 0.4em\relax No starch press, 2011.
 
 \bibitem{Pro7}
@@ -59,6 +59,31 @@ S.~Peyton-Jones and T.~Harris, ``Programming in the age of concurrency:
   Software transactional memory,'' 2017. [Online]. Available:
   \url{https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Pro9}
+\BIBentryALTinterwordspacing
+S.~Peyton-Jones and E.~Meijer, ``Haskell is useless,'' 2006. [Online].
+  Available:
+  \url{https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pro10}
+\BIBentryALTinterwordspacing
+S.~Peyton-Jones, ``The future is parallel, and the future of parallel is
+  declarative,'' 2011. [Online]. Available:
+  \url{https://www.youtube.com/watch?v=tC94Mkg-oJU}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pro11}
+\BIBentryALTinterwordspacing
+------, ``Harnessing the multicores: Nested data parallelism in haskell,''
+  2016. [Online]. Available:
+  \url{https://www.youtube.com/watch?v=kZkO3k9g1ps&t=154s}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pro12}
+B.~Lisper, ``Functional programming and parallel computing,'' M\"{a}lardalen
+  University, School of Innovation, Design and Engineering, Tech. Rep., 2013.
 
 \bibitem{Con1}
 K.~Svensson and T.~Eliasson, ``A comparison of functional and object-oriented

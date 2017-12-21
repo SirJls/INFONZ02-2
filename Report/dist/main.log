@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.19)  21 DEC 2017 02:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.19)  21 DEC 2017 08:52
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -249,6 +249,27 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmargin=\skip62
 \droptitle=\skip63
 )
+(/usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+
+(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
 (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
 
@@ -368,29 +389,29 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (dist/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 96.
-LaTeX Font Info:    ... okay on input line 96.
-LaTeX Font Info:    Try loading font information for T1+pplx on input line 96.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 98.
+LaTeX Font Info:    ... okay on input line 98.
+LaTeX Font Info:    Try loading font information for T1+pplx on input line 98.
 
 (/usr/share/texmf-dist/tex/latex/psnfss/t1pplx.fd
 File: t1pplx.fd 2004/09/06 font definitions for T1/pplx.
 )
 \big@size=\dimen159
-LaTeX Info: Redefining \microtypecontext on input line 96.
+LaTeX Info: Redefining \microtypecontext on input line 98.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -442,23 +463,11 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box30
-(/usr/share/texmf-dist/tex/latex/graphics/color.sty
-Package: color 2016/07/10 v1.1e Standard LaTeX Color (DPC)
-
-(/usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package color Info: Driver file: pdftex.def on input line 147.
-
-(/usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
-
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count134
 \scratchdimen=\dimen160
-\scratchbox=\box31
+\scratchbox=\box30
 \nofMPsegments=\count135
 \nofMParguments=\count136
 \everyMPshowfont=\toks19
@@ -467,8 +476,9 @@ File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 \MPnumerator=\count138
 \makeMPintoPDFobject=\count139
 \everyMPtoPDFconversion=\toks20
-)))
-Package hyperref Info: Link coloring ON on input line 96.
+)
+\AtBeginShipoutBox=\box31
+Package hyperref Info: Link coloring ON on input line 98.
  (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
@@ -477,39 +487,39 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count140
 )
-LaTeX Info: Redefining \ref on input line 96.
-LaTeX Info: Redefining \pageref on input line 96.
-LaTeX Info: Redefining \nameref on input line 96.
+LaTeX Info: Redefining \ref on input line 98.
+LaTeX Info: Redefining \pageref on input line 98.
+LaTeX Info: Redefining \nameref on input line 98.
  (dist/main.out) (dist/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 101.
-LaTeX Font Info:    Try loading font information for OT1+pplx on input line 101
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 103.
+LaTeX Font Info:    Try loading font information for OT1+pplx on input line 103
 .
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1pplx.fd
 File: ot1pplx.fd 2004/09/06 font definitions for OT1/pplx.
 )
-LaTeX Font Info:    Try loading font information for OML+zplm on input line 101
+LaTeX Font Info:    Try loading font information for OML+zplm on input line 103
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMS+zplm on input line 101
+LaTeX Font Info:    Try loading font information for OMS+zplm on input line 103
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Try loading font information for OMX+zplm on input line 101
+LaTeX Font Info:    Try loading font information for OMX+zplm on input line 103
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
-LaTeX Font Info:    Try loading font information for OT1+zplm on input line 101
+LaTeX Font Info:    Try loading font information for OT1+zplm on input line 103
 .
 
 (/usr/share/texmf-dist/tex/latex/psnfss/ot1zplm.fd
@@ -523,11 +533,11 @@ Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplx/m/sc/12'.
 (microtype)             Ignoring protrusion settings for this character.
 LaTeX Font Info:    Font shape `T1/pplx/bx/n' in size <10> not available
-(Font)              Font shape `T1/pplx/b/n' tried instead on input line 101.
+(Font)              Font shape `T1/pplx/b/n' tried instead on input line 103.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 108.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 106.
+(babel)             in language  on input line 108.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/pplx/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -535,81 +545,81 @@ Package microtype Info: Character `029' is missing
 Underfull \vbox (badness 1810) has occurred while \output is active []
 
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 132.
+(babel)             in language  on input line 134.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 137.
+(babel)             in language  on input line 139.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 145.
+(babel)             in language  on input line 147.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 158.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 158.
+(babel)             in language  on input line 160.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 170.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 168.
+(babel)             in language  on input line 170.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6608) has occurred while \output is active []
 
 
 Underfull \vbox (badness 1242) has occurred while \output is active []
 
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 200.
+(babel)             in language  on input line 202.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 200.
+(babel)             in language  on input line 202.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 200.
+(babel)             in language  on input line 202.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 200.
+(babel)             in language  on input line 202.
  [2]
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 220.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 218.
+(babel)             in language  on input line 220.
 
-Underfull \hbox (badness 1231) in paragraph at lines 226--235
+Underfull \hbox (badness 1231) in paragraph at lines 228--237
 []\T1/pplx/m/n/10 (+20) Embedded sys-te-men zijn ge-maakt voor
  []
 
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 259.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 257.
+(babel)             in language  on input line 259.
 
 Package blindtext Warning: dutch not defined, using English instead.
-(blindtext)                 on input line 259.
+(blindtext)                 on input line 261.
 
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 261.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 261.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 261.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 259.
+(babel)             in language  on input line 261.
 [3] (dist/main.bbl
 Underfull \hbox (badness 4366) in paragraph at lines 40--43
 \T1/pplx/m/n/10 (+20) gram-ming lan-gu-a-ges,'' 2017.
@@ -620,8 +630,18 @@ Underfull \hbox (badness 1888) in paragraph at lines 40--43
 \T1/pplx/m/n/10 (+20) [On-line]. Avai-la-ble: [][]$https : / /
  []
 
+
+Underfull \hbox (badness 2735) in paragraph at lines 65--69
+\T1/pplx/m/n/10 (+20) ``Has-kell is use-less,'' 2006.
+ []
+
+
+Underfull \hbox (badness 1888) in paragraph at lines 65--69
+\T1/pplx/m/n/10 (+20) [On-line]. Avai-la-ble: [][]$https : / /
+ []
+
 ! Misplaced alignment tab character &.
-l.70 ...skell, vb .net, aspectj, perl, ruby, php &
+l.95 ...skell, vb .net, aspectj, perl, ruby, php &
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -632,39 +652,39 @@ might try typing `S' now just to see what is salvageable.
 
 )
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 267.
+(babel)             in language  on input line 269.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 267.
+(babel)             in language  on input line 269.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 267.
+(babel)             in language  on input line 269.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 267.
+(babel)             in language  on input line 269.
  [4]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 281.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 281.
  (dist/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 281.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 281.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1E1797A8F43B6AD96E8E6292418B4D99;1156.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 281.
  ) 
 Here is how much of TeX's memory you used:
- 13229 strings out of 492985
- 194537 string characters out of 6138637
- 304508 words of memory out of 5000000
- 16382 multiletter control sequences out of 15000+600000
- 59848 words of font info for 249 fonts, out of 8000000 for 9000
+ 13632 strings out of 492985
+ 198889 string characters out of 6138637
+ 316816 words of memory out of 5000000
+ 16775 multiletter control sequences out of 15000+600000
+ 60084 words of font info for 252 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,43p,306b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,306b,387s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino
 /uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sh
 are/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dist/main.pdf (4 pages, 77549 bytes).
+Output written on dist/main.pdf (4 pages, 79282 bytes).
 PDF statistics:
- 94 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 22 named destinations out of 1000 (max. 500000)
+ 106 PDF objects out of 1000 (max. 8388607)
+ 95 compressed objects within 1 object stream
+ 26 named destinations out of 1000 (max. 500000)
  52281 words of extra memory for PDF output out of 61914 (max. 10000000)
 

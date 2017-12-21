@@ -44,11 +44,13 @@
 
 \addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
 
+\usepackage{xcolor}
+\definecolor{RoyalBlue}{RGB}{0,35,102}
+
 \usepackage[
      pdfusetitle
     ,colorlinks=true
-    ,citecolor=link
-    ,linkcolor=link
+    ,allcolors=RoyalBlue
     ,pdfborder={0 0 0}
     ,unicode=true
 ]{hyperref}
@@ -152,8 +154,8 @@ volgende instructie die toegang heeft tot deze data, totdat er een antwoord
 wordt gepresenteerd. Imperatieve programmeertalen zijn door deze eigenschap om
 de huidige staat van het programma aan te passen zeer geschikt voor het
 programmeren van computer hardware. Zo zijn CPU's imperatieve executie machines
-en compilers vertalen direct naar deze taal. Dit is de reden dat imperatief
-programmeren hedendaags de gangbare manier van programmeren is.
+voor machine code en compilers vertalen direct naar deze taal. Dit is de reden
+dat imperatief programmeren hedendaags de gangbare manier van programmeren is.
 
 \subsection{Functioneel programmeren }
 Functioneel programmeren is een paradigma dat niet nieuw is, maar al sinds de
@@ -219,8 +221,8 @@ eigen, gescheiden verantwoordelijkheid heeft, dit heet modulariteit.
 Dat functioneel programmeren tegenwoordig voor steeds meer situaties en
 problemen een gangbare oplossing is, zagen we in de vorige sectie. Echter zijn
 er ook situaties en problemen die zich niet schikken voor een functionele
-oplossing. Embedded systemen is zo'n gebied waarin functionele programmeertalen
-niet geschikt zijn voor het schrijven van programma's
+oplossing. Embedded systemen is \'e\'en van deze gebieden waarin functionele
+programmeertalen niet geschikt zijn voor het schrijven van programma's
 (ook wel firmware genoemd).
 
 Embedded systemen zijn gemaakt voor het uitvoeren van een specifieke taak
@@ -250,9 +252,9 @@ dezelfde translatie gedaan in \'e\'en van de imperatieve talen.
 Een andere veel voorkomend probleem is dat veel van de huidige systemen die
 momenteel in de omloop zijn, geschreven zijn in een imperatieve taal. Veel van
 deze systemen zijn al jaren in ontwikkeling en een complete herschrijving van
-zo'n systeem is vaak erg tijdrovend en niet winstgevend. Door vervolgens nieuwe
-functionele code te koppelen met de huidige imperatieve systemen, ontstaan er
-koppelingsproblemen.
+zulke systemen is vaak erg tijdrovend en niet winstgevend. Door vervolgens
+nieuwe functionele code te koppelen met de huidige imperatieve systemen,
+ontstaan er koppelingsproblemen.
 
 \section{Conclusie}
 \blindtext % Dummy text

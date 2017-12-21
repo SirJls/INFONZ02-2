@@ -67,6 +67,12 @@ INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 INPUT /usr/share/texmf-dist/tex/latex/titling/titling.sty
 INPUT /usr/share/texmf-dist/tex/latex/titling/titling.sty
+INPUT /usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/share/texmf-dist/tex/latex/xcolor/xcolor.sty
+INPUT /usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
+INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
@@ -98,12 +104,6 @@ INPUT /usr/share/texmf-dist/tex/latex/psnfss/t1pplx.fd
 INPUT /usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplr9e.tfm
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 INPUT /usr/share/texmf-dist/tex/latex/microtype/mt-ppl.cfg
-INPUT /usr/share/texmf-dist/tex/latex/graphics/color.sty
-INPUT /usr/share/texmf-dist/tex/latex/graphics/color.sty
-INPUT /usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT /usr/share/texmf-dist/tex/latex/graphics-cfg/color.cfg
-INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
-INPUT /usr/share/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 INPUT /usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
