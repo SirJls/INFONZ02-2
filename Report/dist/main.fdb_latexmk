@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex dist/main"] 1513817884 "dist/main.aux" "dist/main.bbl" "dist/main" 1513818355
+["bibtex dist/main"] 1513817884 "dist/main.aux" "dist/main.bbl" "dist/main" 1513818546
   "/usr/share/texmf-dist/bibtex/bst/IEEEtran/IEEEtran.bst" 1510395181 57748 7c8250ecf02814ce6ddc0cdbb63df1dd ""
   "dist/main.aux" 1513818349 1753 43acfae592680b7384922f123567c8aa ""
   "main.bib" 1513817881 3476 a3eb642a0d8190483f276bc10f303e88 ""
   (generated)
-  "dist/main.bbl"
   "dist/main.blg"
-["pdflatex"] 1513818348 "main.tex" "dist/main.pdf" "main" 1513818355
+  "dist/main.bbl"
+["pdflatex"] 1513818348 "main.tex" "dist/main.pdf" "main" 1513818546
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1510784367 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1510784337 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/palatino/pplb8r.tfm" 1510784341 2532 9ad73cf4dd2173a847f2a5f5608e0b9a ""
@@ -95,9 +95,9 @@
   "dist/main.aux" 1513818349 1753 43acfae592680b7384922f123567c8aa ""
   "dist/main.bbl" 1513817884 2650 e4abcfd69291698458e533906c2bebe9 "bibtex dist/main"
   "dist/main.out" 1513818349 1156 1e1797a8f43b6ad96e8e6292418b4d99 ""
-  "main.tex" 1513818346 14427 f3645707b870accb2a85dd65961e3cce ""
+  "main.tex" 1513818382 14427 f3645707b870accb2a85dd65961e3cce ""
   (generated)
-  "dist/main.pdf"
-  "dist/main.log"
   "dist/main.aux"
   "dist/main.out"
+  "dist/main.log"
+  "dist/main.pdf"
