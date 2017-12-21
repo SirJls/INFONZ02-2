@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.19)  20 DEC 2017 23:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/Arch Linux) (preloaded format=pdflatex 2017.11.19)  21 DEC 2017 02:05
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -589,61 +589,82 @@ Package babel Info: Redefining dutch shorthand "|
 (babel)             in language  on input line 218.
 Package babel Info: Redefining dutch shorthand "~
 (babel)             in language  on input line 218.
-Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 241.
-Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 241.
 
+Underfull \hbox (badness 1231) in paragraph at lines 226--235
+[]\T1/pplx/m/n/10 (+20) Embedded sys-te-men zijn ge-maakt voor
+ []
+
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 257.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 257.
 
 Package blindtext Warning: dutch not defined, using English instead.
-(blindtext)                 on input line 243.
+(blindtext)                 on input line 259.
 
-(dist/main.bbl
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 36.
+(babel)             in language  on input line 259.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 36.
+(babel)             in language  on input line 259.
 Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 36.
+(babel)             in language  on input line 259.
 Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 36.
- [3])
-Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 251.
-Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 251.
-Package babel Info: Redefining dutch shorthand "|
-(babel)             in language  on input line 251.
-Package babel Info: Redefining dutch shorthand "~
-(babel)             in language  on input line 251.
- [4
+(babel)             in language  on input line 259.
+[3] (dist/main.bbl
+Underfull \hbox (badness 4366) in paragraph at lines 40--43
+\T1/pplx/m/n/10 (+20) gram-ming lan-gu-a-ges,'' 2017.
+ []
 
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 263.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 263.
+
+Underfull \hbox (badness 1888) in paragraph at lines 40--43
+\T1/pplx/m/n/10 (+20) [On-line]. Avai-la-ble: [][]$https : / /
+ []
+
+! Misplaced alignment tab character &.
+l.70 ...skell, vb .net, aspectj, perl, ruby, php &
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+)
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 267.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 267.
+Package babel Info: Redefining dutch shorthand "|
+(babel)             in language  on input line 267.
+Package babel Info: Redefining dutch shorthand "~
+(babel)             in language  on input line 267.
+ [4]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 279.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 279.
  (dist/main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 263.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 263.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 279.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 279.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1E1797A8F43B6AD96E8E6292418B4D99;1156.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 263.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 279.
  ) 
 Here is how much of TeX's memory you used:
- 13165 strings out of 492985
- 193927 string characters out of 6138637
- 304609 words of memory out of 5000000
- 16348 multiletter control sequences out of 15000+600000
- 50594 words of font info for 215 fonts, out of 8000000 for 9000
+ 13229 strings out of 492985
+ 194537 string characters out of 6138637
+ 304508 words of memory out of 5000000
+ 16382 multiletter control sequences out of 15000+600000
+ 59848 words of font info for 249 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,12n,43p,306b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 36i,12n,43p,306b,381s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-dist/fon
 ts/type1/public/fpl/fplrc8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino
 /uplb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sh
 are/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on dist/main.pdf (4 pages, 73911 bytes).
+Output written on dist/main.pdf (4 pages, 77549 bytes).
 PDF statistics:
- 85 PDF objects out of 1000 (max. 8388607)
- 74 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
- 41529 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 94 PDF objects out of 1000 (max. 8388607)
+ 83 compressed objects within 1 object stream
+ 22 named destinations out of 1000 (max. 500000)
+ 52281 words of extra memory for PDF output out of 61914 (max. 10000000)
 

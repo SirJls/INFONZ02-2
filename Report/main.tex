@@ -217,26 +217,42 @@ eigen, gescheiden verantwoordelijkheid heeft, dit heet modulariteit.
 
 \section{Algemene nadelen functioneel programmeren}
 Dat functioneel programmeren tegenwoordig voor steeds meer situaties en
-problemen een gangbare oplossing is, hebben we besproken. Echter zijn er ook
-situaties en problemen die zich niet schikken voor een functionele oplossing.
-E\a'en van deze situaties is als er programma's (ook wel firmware genoemd)
-moeten worden geschreven voor embedded systemen. Embedded systemen zijn vaak
-gemaakt voor het uitvoeren van specifieke taken, dit in tegenstelling tot
-een computer voor algemeen gebruik. Doordat embedded systemen veelal gemaakt
-zijn voor het uitvoeren van specifieke taken zijn er veel meer
-processorarchitecturen. Deze grote verschillen in processorarchitectuur en de
-beperkte interne geheugen die deze chips vaak hebben, maakt ze niet erg
-geschikt voor het schrijven van firmware in een functionele programmeertaal,
-aangezien functionele talen meer geheugen gebruiken dan andere paradigma's.
+problemen een gangbare oplossing is, zagen we in de vorige sectie. Echter zijn
+er ook situaties en problemen die zich niet schikken voor een functionele
+oplossing. Embedded systemen is zo'n gebied waarin functionele programmeertalen
+niet geschikt zijn voor het schrijven van programma's
+(ook wel firmware genoemd).
 
-Ook de garbage collector van de functionele talen kan worden gezien als een
-enorme beperking aangezien de programmeur het onderliggende geheugen niet kan
-controleren. Zo zijn de meeste functionele programmeertalen aanzienlijk
-langzamer zonder een goed geoptimaliseerde compiler ten opzichte van
-imperatieve programmeertalen. Veel van dit verlies in snelheid kan worden
-verklaard door de focus op abstractie van de functionele talen. Door dit hogere
-niveau van programmeren duurt een translatie naar machine code door de compiler
-vaak langer dan de translatie van imperatieve talen.
+Embedded systemen zijn gemaakt voor het uitvoeren van een specifieke taak
+en beschikken vaak over weinig intern geheugen. Ook kunnen deze systemen een
+andere processor hebben die kan verschillen met de processor die normaliter in
+een algemene (thuis)computer zit. Door het beperkte interne geheugen en de vele
+verschillende processoren, zijn functionele programmeertalen niet geschikt
+voor het schrijven van de firmware voor deze systemen. Functionele
+programmeertalen gebruiken namelijk aanzienlijk meer geheugen dan hun
+imperatieve tegenhangers. Data is in deze talen niet muteerbaar en voor elke
+berekening moet er een nieuw stuk geheugen worden aangesproken.
+
+Doordat er weinig geheugen beschikbaar is in deze systemen en er veel
+verschillende processorarchitecturen bestaan, is het voor veel programmeurs
+noodzakelijk om direct het geheugen te kunnen controleren. Echter zijn veel
+functionele programmeertalen afhankelijk van compiler optimalisatie, waar de
+compiler vaak geleverd wordt met een garbage collector. Het gebruik van een
+garbage collector is voor embedded systemen een enorme beperking aangezien de
+programmeur het onderliggende geheugen niet kan controleren. Door deze
+beperking zijn de meeste functionele programmeertalen aanzienlijk langzamer ten
+opzichte van imperatieve programmeertalen en kan het verlies in snelheid worden
+teruggeleid en verklaard door de focus op abstractie van de functionele talen.
+Door de focus op abstractie duurt een translatie van een programma naar machine
+code in een functionele programmeertaal door de compiler vaak langer dan
+dezelfde translatie gedaan in \'e\'en van de imperatieve talen.
+
+Een andere veel voorkomend probleem is dat veel van de huidige systemen die
+momenteel in de omloop zijn, geschreven zijn in een imperatieve taal. Veel van
+deze systemen zijn al jaren in ontwikkeling en een complete herschrijving van
+zo'n systeem is vaak erg tijdrovend en niet winstgevend. Door vervolgens nieuwe
+functionele code te koppelen met de huidige imperatieve systemen, ontstaan er
+koppelingsproblemen.
 
 \section{Conclusie}
 \blindtext % Dummy text
@@ -253,10 +269,10 @@ vaak langer dan de translatie van imperatieve talen.
 %------------------------------------------------------------------------------
 %	APPENDIX
 %------------------------------------------------------------------------------
-\appendix
+% \appendix
 
-\begin{appendices}
-\end{appendices}
+% \begin{appendices}
+% \end{appendices}
 
 %------------------------------------------------------------------------------
 
