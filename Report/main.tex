@@ -10,6 +10,7 @@
 \usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage{amsmath}
 
 \usepackage[dutch]{babel} % Language hyphenation and typographical rules
 \usepackage[titletoc,title]{appendix}
@@ -20,8 +21,20 @@
 
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
 
+\usepackage{algorithmicx} % We need to write some pseudocode
+\usepackage{algorithm, algpseudocode} % We need floating algorithms
+
+\algdef{SE}[VARIABLES]{Variables}{EndVariables}
+   {\algorithmicvariables}
+   {\algorithmicend\ \algorithmicvariables}
+\algnewcommand{\algorithmicvariables}{\textbf{Shared Variable}}
+
 \usepackage{enumitem} % Customized lists
 \setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{multicol} % We need multicolumn support for appendix
+
+\usepackage{graphicx} % Graphics
 
 \usepackage{abstract} % Allows abstract customization
 \renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
@@ -46,14 +59,75 @@
 
 \usepackage{xcolor}
 \definecolor{RoyalBlue}{RGB}{0,35,102}
+\definecolor{RoyalRed}{RGB}{157,16, 45}
 
 \usepackage[
-     pdfusetitle
+  pdfusetitle
     ,colorlinks=true
     ,allcolors=RoyalBlue
     ,pdfborder={0 0 0}
     ,unicode=true
-]{hyperref}
+  ]{hyperref}
+
+%------------------------------------------------------------------------------
+%	FIGURES
+%------------------------------------------------------------------------------
+\newcommand{\igopt}[2]{\includegraphics[#1]{#2}} %%! options, filename
+
+\newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}} %%! width in units of textwidth, filename
+
+\newcommand{\figopt}[4]{ %%! width, filename, caption, placement (h, t, ht)
+    \begin{figure}[#4]
+        \centering
+        \ig{#1}{#2}
+        \caption{#3}
+        \label{fig:#2}
+    \end{figure}
+}
+
+\newcommand{\fig}[3]{ %%! width, filename, caption
+    \figopt{#1}{#2}{#3}{ht}
+}
+
+\newcommand{\doublefigopt}[8]{ %%! w1, f1, c1, w2, f2, c2, main caption, placement
+    \begin{figure}[#8]
+        \centering
+        \subfloat[#3]{
+            \ig{#1}{#2}
+            \label{fig:#2}
+        }
+        \subfloat[#6]{
+            \ig{#4}{#5}
+            \label{fig:#5}
+        }
+        \caption{#7}
+        \label{fig:#2_#5}
+    \end{figure}
+}
+
+%------------------------------------------------------------------------------
+%	APPEDIX ENTRIES
+%------------------------------------------------------------------------------
+
+% Headings within sections.
+% Parameter 1: Section name.
+\newcommand{\AppendixSection}[1]{
+  {
+    \begin{flushleft}
+      \Large\textbf{#1}}
+    \end{flushleft}
+  }
+
+% AppendixItem to use within sections.
+% Parameter 1: Item title/name.
+% Parameter 2: Context.
+\newcommand{\AppendixItem}[2]{
+  \textbf{\color{RoyalRed}
+  \begin{flushleft}
+    #1:
+  \end{flushleft}
+  }\par\newline #2}
+
 
 %------------------------------------------------------------------------------
 %	TITLE SECTION
@@ -65,7 +139,7 @@
 \posttitle{\end{center}} % Article title closing formatting
 \title{Het functionele paradigma is de toekomst.} % Article title
 \author{%
-\textsc{Sjors Sparreboom} \\[1ex] % Your name
+  \textsc{Sjors Sparreboom} \\[1ex] % Your name
 \normalsize Hogeschool Rotterdam \\ % Your institution
 \normalsize \href{mailto:0890040@hr.nl}{0890040@hr.nl} \\[2ex] % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
@@ -75,22 +149,20 @@
 }
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
-\begin{abstract}
-\noindent
-  Met de komst van het internet, big data, cloud computing en de
-  toenemende capaciteit van computers is er vernieuwde interesse in de
-  functionele programmeertalen. Dit rapport bekijkt samen met de lezer de voor
-  en nadelen bij de stelling
-  \textit{``Het functionele paradigma is de toekomst.''} Dit gebeurt op basis
-  van een literatuuronderzoek naar de relaties en verschillen van de heersende
-  programmeerparadigma's in de industrie. Het onderzoek beperkt zich tot het
-  imperatieve en functionele paradigma. Om het functionele paradigma en zijn
-  plaats binnen de informatica beter te kunnen begrijpen is er binnen dit
-  onderzoek van een minimale kennisgeving van de heersende
-  programmeerparadigma's in de industrie uitgegaan. Ook is kennis van
-  programmeren wenselijk, maar kan het onderzoek ook prima zonder deze kennis
-  worden gevolgd.
-\end{abstract}
+  \begin{abstract}
+    \noindent
+    Met de komst van het internet, big data en de toenemende capaciteit van
+    computers is er vernieuwde interesse in de functionele programmeertalen. Dit
+    rapport bekijkt samen met de lezer de voor en nadelen bij de stelling
+    \textit{``Het functionele paradigma is de toekomst.''} Dit gebeurt op basis
+    van een literatuuronderzoek naar de relaties en verschillen van de heersende
+    programmeerparadigma's. Het onderzoek beperkt zich tot het imperatieve en
+    functionele paradigma. Om het functionele paradigma en zijn plaats binnen de
+    informatica beter te kunnen begrijpen is er binnen dit onderzoek van een
+    minimale kennisgeving van de heersende programmeerparadigma's uitgegaan. Ook
+    is kennis van programmeren wenselijk, maar kan het onderzoek ook prima zonder
+    deze kennis worden gevolgd.
+  \end{abstract}
 }
 
 %------------------------------------------------------------------------------
@@ -107,7 +179,7 @@
 
 \section{Inleiding}
 \lettrine[nindent=0em,lines=3]{V}oor het maken van programma's wordt er gebruik
-gemaakt van programmeertalen.  Door het gebruik van een programmeertaal is het
+gemaakt van programmeertalen. Door het gebruik van een programmeertaal is het
 mogelijk voor een programmeur om een computer te voorzien van instructies en zo
 de gigantische rekenkracht van het apparaat te benutten. Er zijn door de jaren
 heen veel programmeertalen ontwikkelt. Sommige revolutionair en vernieuwend,
@@ -120,8 +192,8 @@ afhankelijk is van een correcte probleem- of doelstelling. Zo wordt er vanuit
 de academische en wetenschappelijke hoek al jaren aangezet tot een transitie
 naar het functionele paradigma, maar worden functionele programmeertalen, zoals
 Haskell en Lisp vaak als een onconventionele, onwerkbare vorm van software
-ontwikkeling gezien. Echter wordt er momenteel met de komst van big data en
-cloud computing een nieuwe effici\"ente manier van dataverwerking toegepast die
+ontwikkeling gezien. Echter wordt er momenteel met de komst van het internet en
+big data een nieuwe effici\"ente manier van dataverwerking toegepast die
 veelal gebruik maakt van parallel, gelijktijdig en gedistribueerd programmeren.
 
 Deze oplossingen schikken zich vaak voor een functionele aanpak van het
@@ -139,8 +211,8 @@ naar twee kanten van deze stelling, namelijk de voor en tegenargumentatie.
 
 Om de plaats van het functionele programmeerparadigma beter te kunnen
 begrijpen, zal er eerst gekeken moeten worden naar de andere dominante
-paradigma's in de industrie. De paradigma's die kort besproken zullen worden
-zijn: het imperatieve en functionele programmeerparadigma.
+paradigma's. De paradigma's die kort besproken zullen worden zijn: het
+imperatieve en functionele programmeerparadigma.
 
 %------------------------------------------------------------------------------
 
@@ -152,68 +224,73 @@ berekeningen worden in een imperatieve taal als data opgeslagen in het
 geheugen. Deze data kan vervolgens worden opgehaald en gemuteerd door elk
 volgende instructie die toegang heeft tot deze data, totdat er een antwoord
 wordt gepresenteerd. Imperatieve programmeertalen zijn door deze eigenschap om
-de huidige staat van het programma aan te passen zeer geschikt voor het
-programmeren van computer hardware. Zo zijn CPU's imperatieve executie machines
-voor machine code en compilers vertalen direct naar deze taal. Dit is de reden
-dat imperatief programmeren hedendaags de gangbare manier van programmeren is.
+de huidige staat van een programma aan te passen zeer geschikt voor het
+programmeren van computer hardware. Dit is de reden dat de imperatieve stijl
+van programmeren hedendaags de gangbare manier van programmeren is.
 
-\subsection{Functioneel programmeren }
+\subsection{Functioneel programmeren}
 Functioneel programmeren is een paradigma dat niet nieuw is, maar al sinds de
-jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het
-lambda calculus, wat Turingvolledig is. Kenmerkend voor functioneel
-programmeren is het programmeren met functies, het vermijden van globale staat,
-de niet muteerbare data structuren en een executie model waarin de evaluatie
-volgorde niet uitmaakt.
+jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het lambda
+calculus\cite{pro1}, wat Turingvolledig is. Kenmerkend voor functioneel programmeren is het
+programmeren met functies, het vermijden van globale staat, de niet
+muteerbare data structuren en een executie model waarin de evaluatie volgorde
+niet uitmaakt.
 
 %------------------------------------------------------------------------------
 
 \section{Algemene voordelen functioneel programmeren}
 
 Nu er kort uitleg is gegeven over imperatieve en functionele talen kunnen we
-kijken naar de verschillen, in het bijzonder de voor en nadelen. Om de
-verschillen echter goed te begrijpen is het handig om te weten dat op het
-moment van schrijven van dit rapport het dominante paradigma in de industrie de
-imperatieve manier van programmeren is. Het is echter pas sinds kort dat er
-hernieuwde interesse is ontstaan in de functionele talen vanwege de
+kijken naar de verschillen tussen beide paradigma's. Het meest voorkomende
+paradigma is het imperatief programmeren. Het is echter pas sinds kort dat
+er hernieuwde interesse is ontstaan in het functionele paradigma vanwege de
 expressiviteit en het vermogen van deze talen om foutloos gelijktijdig
-programma's uit te voeren. Deze eigenschappen sluiten heel goed aan bij de
-belangen van veel bedrijven die met de komst van het internet,
-cloud computing en big data over data beschikken die zo omvangrijk is dat
-de traditionele data verwerkingssoftware niet toereikend genoeg is om hiermee
-om te gaan. De oplossing: het verdelen van de data over verschillende
-multi-core processoren, zodat er betere prestaties kunnen worden behaald en de
-verwerking sneller verloopt. Dit heet in de informatica gedistribueerd
-programmeren.
+programma's uit te voeren. Deze eigenschappen maken functionele talen geschikt
+voor het verwerken van de grote hoeveelheden data in een gedistribueerde
+omgeving. Sinds de komst van het internet en big data zijn de traditionele
+manieren van dataverwerking niet meer toereikend genoeg. De oplossing: het
+verdelen van de data over verschillende multi-core processoren,
+zodat de verwerking van deze data sneller verloopt; dit heet in de informatica
+gedistribueerd programmeren.
 
 Gedistribueerd programmeren is een complex onderwerp in de informatica en niet
-zonder enige risico's. Doordat er meerdere multi-core processoren aangesproken
-worden, wat tevens gelijktijdig kan gebeuren, moet er goed nagedacht worden
-over de evaluatie volgorde. Doordat de aangesproken processoren niet dezelfde
-throughput hebben zijn uitspraken over ruimte en tijd complexiteit moeilijk
-voor een programmeur. Zeker als we er vanuit kunnen gaan dat het meest
-gebruikte paradigma in de industrie de imperatieve stijl van programmeren is.
-Het imperatief programmeren is inherent sequentieel en data is muteerbaar wat
-het correct uitvoeren van een programma nog meer bemoeilijkt door eventuele
-data races. Om data races te voorkomen zijn er in vele imperatieve
-programmeertalen locks of mutexes ge\"introduceerd met als doel het correct
-afhandelen van de executievolgorde van een imperatief programma. Echter zijn de
-ge\"introduceerde oplossingen niet zonder bijwerkingen, denk aan de deadlock.
+zonder enige risico's. Doordat er meerdere multi-core processoren betrokken
+zijn bij de executie van het programma, wat tevens gelijktijdig kan gebeuren,
+is het cruciaal dat de evaluatie volgorde van het programma klopt. Echter is
+het moeilijk om deze evaluatie volgorde te waarborgen aangezien de aangesproken
+processoren niet dezelfde throughput hebben. Hierdoor zijn uitspraken over
+ruimte en tijd complexiteit moeilijk voor een programmeur. In veel imperatieve
+programmeertalen zijn locks of mutexes genoemd, ge\"introduceerd met als
+doel het correct afhandelen van deze executievolgorde. Echter zijn de
+ge\"introduceerde oplossingen niet zonder bijwerkingen. Bijwerkingen van deze
+oplossingen kunnen er voor zorgen dat het programma beland in een deadlock of
+dat het leidt tot onverwachtse resultaten door data races\cite{pro13}. Deze
+bijwerkingen kunnen worden verklaard doordat data in imperatieve
+programmeertalen muteerbaar is en deze talen inherent sequentieel zijn.
 
-Functionele programmeertalen hebben echter veel van deze problemen niet. Zo
-zijn functionele talen niet afhankelijk van de evaluatie volgorde en zijn er
-geen locks of mutexes, wat ze uitsluit voor deadlocks. Dit maakt het
-mogelijk om verschillende stukken van een expressie parallel te evalueren,
-wat een pre is voor gedistribueerd programmeren. Tevens is de data in de
-functionele programmeertalen niet muteerbaar, wat inhoudt dat er geen
-bijwerkingen kunnen ontstaan, waardoor data races niet tot nauwelijks voor
-kunnen komen in deze talen.
+Functionele programmeertalen hebben echter geen van de bovengenoemde problemen.
+Deze talen niet afhankelijk van de evaluatie volgorde en zijn er geen locks of
+mutexes, wat ze uitsluit voor deadlocks. Dit maakt het mogelijk om
+verschillende stukken van een expressie parallel te evalueren, wat een pre is
+voor gedistribueerd programmeren. Tevens is de data in de functionele
+programmeertalen niet muteerbaar, wat inhoudt dat er geen bijwerkingen zijn
+en data races niet tot nauwelijks voor kunnen komen in deze talen.
 
-De functionele programmeertalen zijn ook erg schaalbaar, zo zijn bepaalde
-algoritmes in functionele programmeertaal vaak minder regels code dan in een
-imperatieve taal, doordat functionele talen vaak een hogere abstractie
-hanteren, denk hierbij aan het gebruik van hogere graads functies. Dit zorgt
-voor een duidelijker en beter herbruikbaar systeem, waar elk stuk code een
-eigen, gescheiden verantwoordelijkheid heeft, dit heet modulariteit.
+Functionele programmeertalen zijn ook erg schaalbaar. Door het gebruik van
+hogere graads functies kunnen functies gedeeltelijk worden toegepast. Dit
+maakt het mogelijk om nieuwe functies van oude functies af te leiden, wat
+ervoor zorgt dat de functies onafhankelijk zijn en zeer schaalbaar. Door de
+schaalbaarheid van deze talen zijn de algoritmes geschreven in een functionele
+taal vaak korter en leesbaarder dan in een imperatieve programmeertaal. Door
+vervolgens een collectie van gerelateerde functies te combineren ontstaan er
+zogeheten modules, welk herbruikbaar en gemakkelijk te beheren zijn.
+Functionele talen zijn dus geschikt wanneer er een vaste verzameling
+\textit{dingen} is en naarmate de code evalueert, er voornamelijk nieuwe
+bewerkingen toe worden gevoegd aan deze bestaande dingen. Wat deze talen zeer
+geschikt maakt voor het manipuleren van symbolische data in boom formaat.
+Dit in tegenstelling tot imperatieve talen, welke zich meer schikken naar een
+vaste set bewerkingen op \textit{dingen} en naarmate de code evalueert, er
+vooral nieuwe dingen worden toegevoegd.
 
 %------------------------------------------------------------------------------
 
@@ -267,14 +344,138 @@ ontstaan er koppelingsproblemen.
 \bibliography{main}
 
 \clearpage
+\onecolumn
 
 %------------------------------------------------------------------------------
 %	APPENDIX
 %------------------------------------------------------------------------------
-% \appendix
 
-% \begin{appendices}
-% \end{appendices}
+\begin{appendices}
+
+  \AppendixSection{Terminologie}
+
+  \AppendixItem{Big Data}{
+    Data sets die zo enorm en complex zijn dat traditionele
+    dataverwerkingssoftware niet langer toereikend zijn.
+  }
+
+  \AppendixItem{Lambda calculus}{
+    Het originele model achter de computer, bedacht door de wiskundige Alan
+    Turing in 1936.
+  }
+
+  \AppendixItem{Multi-core processoren}{
+    Multi-core processoren, bestaan uit verschillende processoren en gedeeld
+    geheugen, zie figuur~\ref{fig:./fig/mutlicore.png}.
+    \fig{0.6}{./fig/mutlicore.png}{Multicore}
+  }
+
+  \AppendixItem{Parallel proces}{
+    De verschillende kernen zoals, te zien in
+    figuur~\ref{fig:./fig/mutlicore.png} kunnen ook parallel verschillende
+    stukken van het programma uitvoeren,
+    zoals te zien in figuur~\ref{fig:./fig/parallel_process.png}. Als
+    verschillende kernen zinnig werk tegelijkertijd doen kan dit het gehele
+    proces versnellen.
+    \fig{0.6}{./fig/parallel_process.png}{Parallel proces}
+  }
+
+  \newpage
+
+  \AppendixItem{Race conditie}{
+    Twee processen P1 en  P2, kunnen beide schrijven naar de variabel
+    $tmp$. De intentie van de programmeur is dat zowel proces P1 als P2
+    $tmp$ van een waarde voorziet, deze vervolgens gelijk te gebruiken en een
+    uiteindelijke waarde voor $y$ en $z$ te presenteren. De executie van
+    algoritme~\ref{algo:algo1} levert de volgende waardes voor $y$ en $z$:
+    \begin{gather*}
+      y = 24, z = 2055
+    \end{gather}
+
+    Echter doordat de processen op verschillende snelheden kunnen draaien, doet
+    zich een situatie voor, zoals te zien in algoritme~\ref{algo:algo2} waar de
+    volgorde van executie niet wordt uitgevoerd zoals de programmeur had
+    bedoeld. De executie van dit algoritme levert de volgende waardes voor $y$
+    en $z$:
+    \begin{gather*}
+      y = 4096, z = 2055
+    \end{gather}
+    Zoals te zien is dit niet de juiste waarde voor $y$. Deze situatie wordt
+    ook wel een race conditie genoemd in de informatica.
+
+    \begin{multicols}{2}
+      \begin{algorithm}[H]
+        \caption{Programmeurs intentie}
+        \label{algo:algo1}
+        \begin{algorithmic}
+          \Variables
+          \State $tmp$
+          \EndVariables
+          \begin{multicols}{2}
+            \Procedure{P1}{}
+            \State $\mathbf{.}$
+            \State $\mathbf{.}$
+            \State $\mathbf{.}$
+            \State $tmp = 12 $
+            \State $y = 2 \times tmp$
+            \EndProcedure
+            \columnbreak
+            \Procedure{P2}{}
+            \State $tmp = 2048$
+            \State $z = tmp + 7$
+            \State $\mathbf{.}$
+            \State $\mathbf{.}$
+            \State $\mathbf{.}$
+            \EndProcedure
+          \end{multicols}
+        \end{algorithmic}
+      \end{algorithm}
+      \columnbreak
+      \begin{algorithm}[H]
+        \caption{Race conditie}
+        \label{algo:algo2}
+        \begin{algorithmic}
+          \Variables
+          \State $tmp$
+          \EndVariables
+          \begin{multicols}{2}
+            \Procedure{P1}{}
+            \State $tmp = 12 $
+            \State $\mathbf{.}$
+            \State $y = 2 \times tmp$
+            \State $\mathbf{.}$
+            \State $\mathbf{.}$
+            \EndProcedure
+            \columbreak
+            \Procedure{P2}{}
+            \State $\mathbf{.}$
+            \State $tmp = 2048$
+            \State $\mathbf{.}$
+            \State $z = tmp + 7$
+            \State $\mathbf{.}$
+            \EndProcedure
+          \end{multicols}
+        \end{algorithmic}
+      \end{algorithm}
+    \end{multicols}
+  }
+
+  \AppendixItem{Throughput}{
+    Maximale snelheid waarop \textit{iets} kan worden verwerkt.
+  }
+
+
+  \AppendixItem{Turingmodel}{
+    Het originele model achter de computer, bedacht door de wiskundige Alan
+    Turing in 1936.
+  }
+
+  \AppendixItem{Turingvolledig}{
+    \textit{Iets} is turingvolledig, wanneer het een turing machine kan
+    simuleren.
+  }
+
+\end{appendices}
 
 %------------------------------------------------------------------------------
 

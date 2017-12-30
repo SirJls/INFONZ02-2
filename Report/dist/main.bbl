@@ -21,69 +21,82 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{Pro1}
+\bibitem{pro1}
+\BIBentryALTinterwordspacing
+H.~Barendregt and E.~Barendsen, ``The expression problem,'' Bell Laboratories,
+  Lucent Technologies, Tech. Rep., 2000. [Online]. Available:
+  \url{ftp://ftp.cs.ru.nl/pub/CompMath.Found/lambda.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Pro2}
 P.~Wadler, ``The essence of functional programming,'' University of Glasgow,
   Tech. Rep., 1992.
 
-\bibitem{Pro2}
+\bibitem{Pro3}
 J.~Hughes, ``Why functional programming matters,'' Institutionen f\"{o}r
   Datavetenskap, Tech. Rep., 1989.
 
-\bibitem{Pro3}
+\bibitem{Pro4}
 \BIBentryALTinterwordspacing
 T.~software BV, ``The software quality company,'' 2017. [Online]. Available:
   \url{http://www.tiobe.com/tiobe-index}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro4}
+\bibitem{Pro5}
 \BIBentryALTinterwordspacing
 S.~Cass, ``The 2017 top programming languages,'' 2017. [Online]. Available:
   \url{https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro5}
+\bibitem{Pro6}
 P.~Wadler, ``Why no one uses functional languages1,'' Bell Laboratories, Lucent
   Technologies, Tech. Rep., 1998.
 
-\bibitem{Pro6}
+\bibitem{Pro7}
 M.~Lipva\v{c}a, \emph{Learn You a Haskell for Great Good!}\hskip 1em plus 0.5em
   minus 0.4em\relax No starch press, 2011.
 
-\bibitem{Pro7}
+\bibitem{Pro8}
 T.~Petricek and J.~Skeet, \emph{Real World Functional Programming}, 20 Baldwin
   Road PO Box 261 Shelter Island, NY 11964, 2010.
 
-\bibitem{Pro8}
+\bibitem{Pro9}
 \BIBentryALTinterwordspacing
 S.~Peyton-Jones and T.~Harris, ``Programming in the age of concurrency:
   Software transactional memory,'' 2017. [Online]. Available:
   \url{https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro9}
+\bibitem{Pro10}
 \BIBentryALTinterwordspacing
 S.~Peyton-Jones and E.~Meijer, ``Haskell is useless,'' 2006. [Online].
   Available:
   \url{https://spectrum.ieee.org/computing/software/the-2017-top-programming-languages}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro10}
+\bibitem{Pro11}
 \BIBentryALTinterwordspacing
 S.~Peyton-Jones, ``The future is parallel, and the future of parallel is
   declarative,'' 2011. [Online]. Available:
   \url{https://www.youtube.com/watch?v=tC94Mkg-oJU}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro11}
+\bibitem{Pro12}
 \BIBentryALTinterwordspacing
 ------, ``Harnessing the multicores: Nested data parallelism in haskell,''
   2016. [Online]. Available:
   \url{https://www.youtube.com/watch?v=kZkO3k9g1ps&t=154s}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Pro12}
+\bibitem{pro13}
 B.~Lisper, ``Functional programming and parallel computing,'' M\"{a}lardalen
   University, School of Innovation, Design and Engineering, Tech. Rep., 2013.
+
+\bibitem{Pro14}
+\BIBentryALTinterwordspacing
+P.~Wadler, ``The expression problem,'' 1998. [Online]. Available:
+  \url{http://www.daimi.au.dk/~madst/tool/papers/expression.txt}
+\BIBentrySTDinterwordspacing
 
 \bibitem{Con1}
 K.~Svensson and T.~Eliasson, ``A comparison of functional and object-oriented
