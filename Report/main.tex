@@ -20,6 +20,7 @@
 \usepackage{booktabs} % Horizontal rules in tables
 
 \usepackage{lettrine} % The lettrine is the first enlarged letter at the beginning of the text
+\usepackage{subfig}
 
 \usepackage{algorithmicx} % We need to write some pseudocode
 \usepackage{algorithm, algpseudocode} % We need floating algorithms
@@ -69,6 +70,8 @@
     ,unicode=true
   ]{hyperref}
 
+\usepackage{cleveref}
+
 %------------------------------------------------------------------------------
 %	FIGURES
 %------------------------------------------------------------------------------
@@ -105,6 +108,8 @@
     \end{figure}
 }
 
+\newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}} %%! w1, f1, c1, w2, f2, c2, main caption
+
 %------------------------------------------------------------------------------
 %	APPEDIX ENTRIES
 %------------------------------------------------------------------------------
@@ -114,7 +119,8 @@
 \newcommand{\AppendixSection}[1]{
   {
     \begin{flushleft}
-      \Large\textbf{#1}}
+      \section{\Large#1}}
+      \label{app:#1}
     \end{flushleft}
   }
 
@@ -161,7 +167,8 @@
     informatica beter te kunnen begrijpen is er binnen dit onderzoek van een
     minimale kennisgeving van de heersende programmeerparadigma's uitgegaan. Ook
     is kennis van programmeren wenselijk, maar kan het onderzoek ook prima zonder
-    deze kennis worden gevolgd.
+    deze kennis worden gevolgd; terminologie kan worden gevonden in
+    bijlage~\ref{app:Terminologie}
   \end{abstract}
 }
 
@@ -334,7 +341,11 @@ nieuwe functionele code te koppelen met de huidige imperatieve systemen,
 ontstaan er koppelingsproblemen.
 
 \section{Conclusie}
-\blindtext % Dummy text
+Met de komst van het internet en big data zijn de traditionele manieren van
+dataverwerking (single processed). HJet duurt voor de 
+parallel, gelijktijdig en gedistribueerd programmeren.
+probleem kan worden 
+% \blindtext % Dummy text
 
 %------------------------------------------------------------------------------
 %	REFERENCE LIST
@@ -359,28 +370,64 @@ ontstaan er koppelingsproblemen.
     dataverwerkingssoftware niet langer toereikend zijn.
   }
 
+  \AppendixItem{Gedistribueerd proces}{
+    Een gedistribueerd is een proces waar een enkele taak wordt opgesplitst in
+    meerdere subtaken die onafhankelijk berekend worden en vervolgens weer
+    worden samengevoegd tot \'e\'en resultaat, zoals te zien in
+    figuur~\ref{fig:./fig/distributed_process.png}.
+    \fig{0.7}{./fig/distributed_process.png}{Gedistribueerd proces}
+  }
+
   \AppendixItem{Lambda calculus}{
     Het originele model achter de computer, bedacht door de wiskundige Alan
     Turing in 1936.
   }
 
-  \AppendixItem{Multi-core processoren}{
+  \AppendixItem{Multi-core processor}{
     Multi-core processoren, bestaan uit verschillende processoren en gedeeld
-    geheugen, zie figuur~\ref{fig:./fig/mutlicore.png}.
-    \fig{0.6}{./fig/mutlicore.png}{Multicore}
-  }
-
-  \AppendixItem{Parallel proces}{
-    De verschillende kernen zoals, te zien in
-    figuur~\ref{fig:./fig/mutlicore.png} kunnen ook parallel verschillende
-    stukken van het programma uitvoeren,
-    zoals te zien in figuur~\ref{fig:./fig/parallel_process.png}. Als
-    verschillende kernen zinnig werk tegelijkertijd doen kan dit het gehele
-    proces versnellen.
-    \fig{0.6}{./fig/parallel_process.png}{Parallel proces}
+    geheugen, zie figuur~\ref{fig:./fig/mutlicore.png}. Deze processoren zijn
+    sneller en hebben een lager energieverbruik dan de single-core
+    processor, zie figuur~\ref{fig:./fig/singlecore.png}, echter is het
+    programmeren voor deze architectuur een stuk lastiger.
+    \fig{0.3}{./fig/mutlicore.png}{Multi-core processor}
   }
 
   \newpage
+
+  \AppendixItem{Parallel proces}{
+    Een parallel proces is een vorm van computatie waarin meerdere calculaties
+    simultaan kunnen worden uitgevoerd. Deze vorm van executie is sinds de
+    komst van de multi-core processor, zie
+    figuur~\ref{fig:./fig/mutlicore.png} het dominante paradigma in computer
+    architectuur.
+
+    Parallelle processen kunnen in verschillende situatie voorkomen, zoals te
+    zien in
+    figuur~\ref{fig:./fig/parallel_process_threads.png_./fig/parallel_process_cores.png}.
+    In figuur~\ref{fig:./fig/parallel_process_threads.png}
+    is er ingezoomd op de parallelle executie van een proces draaiend op
+    \'e\'en kern. Een parallelle executie van zo'n proces wordt gedaan door
+    gebruik te maken van threads, zie figuur~\ref{fig:./fig/thread.png}. In
+    figuur~\ref{fig:./fig/parallel_process_cores.png} zien we een parallel
+    executie door middel van een multi-core processor
+    (figuur~\ref{fig:./fig/mutlicore.png}, waarbij er gebruik wordt gemaakt van
+    de extra kernen beschikbaar voor deze architectuur. Als deze verschillende
+    kernen of threads zinnig werk tegelijkertijd doen kan dit het gehele proces
+    versnellen.
+    \doublefig{0.3}{./fig/parallel_process_threads.png}{Threaded}
+    {0.3}{./fig/parallel_process_cores.png}{Kernen}{Parallele processen}
+  }
+
+  \newpage
+
+  \AppendixItem{Process \& Thread}{
+    Een thread is de kleinste sequentie van een programma dat onafhankelijk kan
+    opereren. Hoe een proces en thread opereren hangt af van de implementatie
+    van het operatie systeem. De meeste voorkomende implementatie is dat een
+    thread een onderdeel is van het proces, zoals te zien in
+    figuur~\ref{fig:./fig/thread.png}.
+    \fig{0.2}{./fig/thread.png}{Thread}
+  }
 
   \AppendixItem{Race conditie}{
     Twee processen P1 en  P2, kunnen beide schrijven naar de variabel
@@ -460,6 +507,15 @@ ontstaan er koppelingsproblemen.
     \end{multicols}
   }
 
+  \AppendixItem{Single-core Processor}{
+    Single-core processoren hebben maar 1 processor direct verbonden aan het
+    gerheugen. Deze processoren zijn gemakkelijk te programmeren, maar hebben
+    echter een lagere hoog energieverbruik en een lage prestatie, in
+    tegenstelling tot de multi-core processor, zie
+    figuur~\ref{fig:./fig/mutlicore.png}.
+    \fig{0.3}{./fig/singlecore.png}{Single-core processor}
+  }
+
   \AppendixItem{Throughput}{
     Maximale snelheid waarop \textit{iets} kan worden verwerkt.
   }
@@ -474,6 +530,7 @@ ontstaan er koppelingsproblemen.
     \textit{Iets} is turingvolledig, wanneer het een turing machine kan
     simuleren.
   }
+
 
 \end{appendices}
 
