@@ -4,6 +4,54 @@
 
 \documentclass[twoside,twocolumn]{article}
 
+\usepackage[dutch]{babel} % Language hyphenation and typographical rules
+
+\usepackage[
+    backend=biber,
+    style=numeric-comp,
+  ]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{csquotes}
+
+\usepackage{listings}
+\lstdefinelanguage{Lambda}{%
+  morekeywords={%
+    if,then,else,fix % keywords go here
+  },%
+  morekeywords={[2]int,string},   % types go here
+  otherkeywords={:}, % operators go here
+  literate={% replace strings with symbols
+    {->}{{$\to$}}{2}
+    {lambda}{{$\lambda$}}{1}
+  },
+  basicstyle={\sffamily},
+  keywordstyle={\bfseries},
+  keywordstyle={[2]\itshape}, % style for types
+  keepspaces,
+  mathescape % optional
+}[keywords,comments,strings]%
+\lstdefinestyle{CStyle}{language=C,frame=t,basicstyle=\scriptsize}
+\lstdefinestyle{HsStyle}{language=Haskell,frame=b,basicstyle=\scriptsize}
+\lstdefinestyle{LambdaStyle}{
+  language=Lambda,
+  frame=bt,
+  basicstyle=\scriptsize,
+  numberstyle=\tiny,
+  numbersep=0pt,
+}
+
+\lstset{
+  language=Lambda,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  breakatwhitespace=true,
+  postbreak=\mbox{\textcolor{RoyalRed}{$\drsh$}\space},
+  numbers
+}
+
+
 \usepackage{blindtext} % Package to generate dummy text throughout this template
 
 \usepackage[sc]{mathpazo} % Use the Palatino font
@@ -11,9 +59,8 @@
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
 \usepackage{amsmath}
+\usepackage{mathabx}
 
-\usepackage[dutch]{babel} % Language hyphenation and typographical rules
-\usepackage[titletoc,title]{appendix}
 
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 \usepackage[hang, small,labelfont=bf,up,textfont=it,up]{caption} % Custom captions under/above floats in tables or figures
@@ -56,11 +103,12 @@
 
 \usepackage{titling} % Customizing the title section
 
-\addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
+% \addto\captionsdutch{\renewcommand{\appendixname}{Bijlage}} % changes 'Bÿlage' to 'Bijlage' for the bookmarks
 
 \usepackage{xcolor}
 \definecolor{RoyalBlue}{RGB}{0,35,102}
-\definecolor{RoyalRed}{RGB}{157,16, 45}
+\definecolor{RoyalRed}{RGB}{157,16,45}
+\definecolor{Orange}{RGB}{255,127,0}
 
 \usepackage[
   pdfusetitle
@@ -70,7 +118,8 @@
     ,unicode=true
   ]{hyperref}
 
-\usepackage{cleveref}
+\usepackage[toc,title]{appendix}
+\usepackage[dutch]{cleveref}
 
 %------------------------------------------------------------------------------
 %	FIGURES
@@ -80,32 +129,32 @@
 \newcommand{\ig}[2]{\igopt{width=#1\columnwidth}{#2}} %%! width in units of textwidth, filename
 
 \newcommand{\figopt}[4]{ %%! width, filename, caption, placement (h, t, ht)
-    \begin{figure}[#4]
-        \centering
+  \begin{figure}[#4]
+    \centering
         \ig{#1}{#2}
         \caption{#3}
         \label{fig:#2}
-    \end{figure}
+  \end{figure}
 }
 
 \newcommand{\fig}[3]{ %%! width, filename, caption
-    \figopt{#1}{#2}{#3}{ht}
+  \figopt{#1}{#2}{#3}{ht}
 }
 
 \newcommand{\doublefigopt}[8]{ %%! w1, f1, c1, w2, f2, c2, main caption, placement
-    \begin{figure}[#8]
-        \centering
+  \begin{figure}[#8]
+    \centering
         \subfloat[#3]{
-            \ig{#1}{#2}
+          \ig{#1}{#2}
             \label{fig:#2}
-        }
+          }
         \subfloat[#6]{
-            \ig{#4}{#5}
+          \ig{#4}{#5}
             \label{fig:#5}
-        }
+          }
         \caption{#7}
         \label{fig:#2_#5}
-    \end{figure}
+  \end{figure}
 }
 
 \newcommand{\doublefig}[7]{\doublefigopt{#1}{#2}{#3}{#4}{#5}{#6}{#7}{ht}} %%! w1, f1, c1, w2, f2, c2, main caption
@@ -124,9 +173,9 @@
     \end{flushleft}
   }
 
-% AppendixItem to use within sections.
-% Parameter 1: Item title/name.
-% Parameter 2: Context.
+  % AppendixItem to use within sections.
+  % Parameter 1: Item title/name.
+  % Parameter 2: Context.
 \newcommand{\AppendixItem}[2]{
   \textbf{\color{RoyalRed}
   \begin{flushleft}
@@ -158,17 +207,17 @@
   \begin{abstract}
     \noindent
     Met de komst van het internet, big data en de toenemende capaciteit van
-    computers is er vernieuwde interesse in de functionele programmeertalen. Dit
-    rapport bekijkt samen met de lezer de voor en nadelen bij de stelling
-    \textit{``Het functionele paradigma is de toekomst.''} Dit gebeurt op basis
-    van een literatuuronderzoek naar de relaties en verschillen van de heersende
+    computers is er vernieuwde interesse in de functionele programmeertalen.
+    Dit rapport bekijkt samen met de lezer de voor en nadelen bij de stelling
+    ``Het functionele paradigma is de toekomst.'' Dit gebeurt op basis van een
+    literatuuronderzoek naar de relaties en verschillen van de heersende
     programmeerparadigma's. Het onderzoek beperkt zich tot het imperatieve en
-    functionele paradigma. Om het functionele paradigma en zijn plaats binnen de
-    informatica beter te kunnen begrijpen is er binnen dit onderzoek van een
-    minimale kennisgeving van de heersende programmeerparadigma's uitgegaan. Ook
-    is kennis van programmeren wenselijk, maar kan het onderzoek ook prima zonder
-    deze kennis worden gevolgd; terminologie kan worden gevonden in
-    bijlage~\ref{app:Terminologie}
+    functionele paradigma. Om het functionele paradigma en zijn plaats binnen
+    de informatica beter te kunnen begrijpen is er binnen dit onderzoek van een
+    minimale kennisgeving van de heersende programmeerparadigma's uitgegaan.
+    Ook is kennis van programmeren wenselijk, maar het onderzoek kan ook prima
+    zonder deze kennis worden gevolgd; terminologie (cursief) waar geen
+    verwijzing voor is kan worden gevonden in~\cref{app:Terminologie}.
   \end{abstract}
 }
 
@@ -185,174 +234,319 @@
 %------------------------------------------------------------------------------
 
 \section{Inleiding}
-\lettrine[nindent=0em,lines=3]{V}oor het maken van programma's wordt er gebruik
-gemaakt van programmeertalen. Door het gebruik van een programmeertaal is het
-mogelijk voor een programmeur om een computer te voorzien van instructies en zo
-de gigantische rekenkracht van het apparaat te benutten. Er zijn door de jaren
-heen veel programmeertalen ontwikkelt. Sommige revolutionair en vernieuwend,
-andere een uitbreiding op reeds bestaande talen. Veel van deze programmeertalen
-delen dezelfde kenmerken en kunnen worden geclassificeerd onder een
-paradigma.
+\label{sec:1}
+\lettrine[nindent=0em,lines=3]{D}it document is een poging om de gemeenschap te
+overtuigen van de significantie van functioneel programmeren als ook te
+informeren wat de voordelen en nadelen zijn van dit paradigma.
 
-Het is daarom van essentieel belang dat een keuze voor een paradigma
-afhankelijk is van een correcte probleem- of doelstelling. Zo wordt er vanuit
-de academische en wetenschappelijke hoek al jaren aangezet tot een transitie
-naar het functionele paradigma, maar worden functionele programmeertalen, zoals
-Haskell en Lisp vaak als een onconventionele, onwerkbare vorm van software
-ontwikkeling gezien. Echter wordt er momenteel met de komst van het internet en
-big data een nieuwe effici\"ente manier van dataverwerking toegepast die
-veelal gebruik maakt van parallel, gelijktijdig en gedistribueerd programmeren.
+Functioneel programmeren dankt zijn naam aan zijn fundamentele werking,
+namelijk de toepassing van functies op argumenten. Dit beschrijft heel mooi wat
+programmeren inhoudt, maar wat is nu eigenlijk een functioneel programma? Een
+mooie beschrijving van een functioneel programma is die van~\textcite{src1}:
+\enquote{Een functioneel programma is een functie waar de gegeven input voor
+dit programma wordt behandeld als argument van een functie, welk vervolgens het
+resultaat hiervan terugeeft als output}.
 
-Deze oplossingen schikken zich vaak voor een functionele aanpak van het
-probleem, maar de achterliggende infrastructuur is vaak imperatief en
-objectgeori\"enteerd waardoor een combinatie veelal uitgesloten is, maar wel
-wenselijk.
+Het functioneel programmeren is niet nieuw en bestaat al sinds de jaren 40. De
+fundamentele werking van deze stijl van programmeren is gebasseerd op
+het \textit{lambda calculus}\cite{src2,src3}. Typerend voor deze stijl is dat
+functies opgebouwd zijn uit andere functies. Een mooi voorbeeld is de hoofd
+functie (het programma zelf), deze is opgebouwd uit functies, welke op hun
+beurt ook weer opgebouwd zijn uit functies; dit heet modulariteit een concept
+dat wordt behandeld in~\cref{subsec:3-2}. Ook zijn functionele talen inherent
+parallel~\cite{src4,src12} en hebben functionele programma's
+geen~\textit{assignments}, waardoor variabelen met een waarde niet meer kunnen
+veranderen, meer hierover in~\cref{subsec:3-1}.
+
+In de rest van dit document zal er worden gediscussieerd over de voor- en
+nadelen van deze vorm van programmeren en zal er in~\cref{sec:5} af worden
+gesloten met een conclusie op de stelling~\textit{``Het functionele paradigma
+is de toekomst``}.
 
 %------------------------------------------------------------------------------
 
 \section{Middenstuk}
+\label{sec:2}
 
-In dit middenstuk zal er een korte uitleg worden gegeven wat de imperatieve en
-functionele programmeerparadigma's inhouden. Opvolgend zal er worden gekeken
-naar twee kanten van deze stelling, namelijk de voor en tegenargumentatie.
+In dit middenstuk wordt er eerst korte uitleg gegeven over imperatief
+programmeren. De ge\"iformeerde lezer kan ervoor kiezen deze paragraaf over te
+slaan, maar moet onthouden dat kennis van imperatief programmeren benodigd is
+in de volgende paragrafen.
 
-Om de plaats van het functionele programmeerparadigma beter te kunnen
-begrijpen, zal er eerst gekeken moeten worden naar de andere dominante
-paradigma's. De paradigma's die kort besproken zullen worden zijn: het
-imperatieve en functionele programmeerparadigma.
+Opvolgend zal er worden gekeken naar de voordelen en nadelen van de
+stelling~\textit{``Het functioneel programmeren is de toekomst''}.
 
 %------------------------------------------------------------------------------
 
 \subsection{Imperatief programmeren}
-Imperatief programmeren houdt in dat een programma een structuur beschrijft
-volgens het Turingmodel. Dit programma wordt door de computer ingelezen in het
-geheugen om het in kleine delen sequentieel uit te voeren. De tussentijdse
-berekeningen worden in een imperatieve taal als data opgeslagen in het
-geheugen. Deze data kan vervolgens worden opgehaald en gemuteerd door elk
-volgende instructie die toegang heeft tot deze data, totdat er een antwoord
-wordt gepresenteerd. Imperatieve programmeertalen zijn door deze eigenschap om
-de huidige staat van een programma aan te passen zeer geschikt voor het
-programmeren van computer hardware. Dit is de reden dat de imperatieve stijl
-van programmeren hedendaags de gangbare manier van programmeren is.
+\label{subsec:2-1}
 
-\subsection{Functioneel programmeren}
-Functioneel programmeren is een paradigma dat niet nieuw is, maar al sinds de
-jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het lambda
-calculus\cite{pro1}, wat Turingvolledig is. Kenmerkend voor functioneel programmeren is het
-programmeren met functies, het vermijden van globale staat, de niet
-muteerbare data structuren en een executie model waarin de evaluatie volgorde
-niet uitmaakt.
+In~\cref{sec:1} werd de functionele vorm van programmeren behandeld. In dit
+paragraaf wordt een nog oudere vorm van programmeren behandeld; imperatief
+programmeren.
+
+De term imperatief programmeren is een letterlijke beschrijving van het gedrag
+dat deze programma's vertonen, namelijk het sequentieel uitvoeren van een lijst
+van instructies. Echter is het vanuit deze context niet duidelijk wat een
+imperatief programma is. Een duidelijke beschrijving van imperatief
+programmeren wordt gegeven door~\textcite[hfdst.~3]{src6} en luidt als volgt:
+
+\begin{quote}
+  Imperatief programmeren staat in tegenstelling tot functioneel programmeren
+  dichtbij de machine representatie. Het introduceert een \textit{memory state}
+  die door acties van het programma kunnen worden gemodificeerd. We noemen deze
+  acties van een programma \textit{instructies}; een imperatief programma is
+  dan ook een lijst van deze instructies.
+\end{quote}
+
+Kort samengevat is het een stijl van programmeren dat direct ge\"inspireerd is
+door assembleer, en net als in assembleer zijn imperatieve programma's in staat
+de memory state van een programma aan te passen. Input-output acties zijn in
+imperatieve programma's dan ook modificaties van het geheugen.
 
 %------------------------------------------------------------------------------
 
 \section{Algemene voordelen functioneel programmeren}
+\label{sec:3}
 
-Nu er kort uitleg is gegeven over imperatieve en functionele talen kunnen we
-kijken naar de verschillen tussen beide paradigma's. Het meest voorkomende
-paradigma is het imperatief programmeren. Het is echter pas sinds kort dat
-er hernieuwde interesse is ontstaan in het functionele paradigma vanwege de
-expressiviteit en het vermogen van deze talen om foutloos gelijktijdig
-programma's uit te voeren. Deze eigenschappen maken functionele talen geschikt
-voor het verwerken van de grote hoeveelheden data in een gedistribueerde
-omgeving. Sinds de komst van het internet en big data zijn de traditionele
-manieren van dataverwerking niet meer toereikend genoeg. De oplossing: het
-verdelen van de data over verschillende multi-core processoren,
-zodat de verwerking van deze data sneller verloopt; dit heet in de informatica
-gedistribueerd programmeren.
+Uit het onderzoek van~\textcites{src7}{src8} blijkt dat de imperatieve stijl
+hedendaags nog steeds de populairste vorm van programeren is. Wat echter opvalt
+is dat er enkele functionele talen in deze resultaten (Erlang,
+Scala, F#, Haskell, Clojure) staan, en dit is niet toevallig.
+Na~\textcite{src9} Turing Award lezing in 1977 was er een verandering binnen de
+academische wereld. Veel academici en wetenschappers waren gen\"inspireerd en
+begonnen te investeren in deze stijl van programmeren; erg verassend aangezien
+deze vorm van programmeren na de jaren 60 als een een onconventionele,
+onwerkbare vorm van software ontwikkeling werd gezien. Het moest echter nog een
+kleine 30 jaar duren voordat er buiten de academische en wetenschappelijke hoek
+nieuwe interesse was voor deze vergeten stijl van programmeren. In deze
+paragraaf wordt de aanleiding van deze nieuw gevonden interesse onderzocht.
 
-Gedistribueerd programmeren is een complex onderwerp in de informatica en niet
-zonder enige risico's. Doordat er meerdere multi-core processoren betrokken
-zijn bij de executie van het programma, wat tevens gelijktijdig kan gebeuren,
-is het cruciaal dat de evaluatie volgorde van het programma klopt. Echter is
-het moeilijk om deze evaluatie volgorde te waarborgen aangezien de aangesproken
-processoren niet dezelfde throughput hebben. Hierdoor zijn uitspraken over
-ruimte en tijd complexiteit moeilijk voor een programmeur. In veel imperatieve
-programmeertalen zijn locks of mutexes genoemd, ge\"introduceerd met als
-doel het correct afhandelen van deze executievolgorde. Echter zijn de
-ge\"introduceerde oplossingen niet zonder bijwerkingen. Bijwerkingen van deze
-oplossingen kunnen er voor zorgen dat het programma beland in een deadlock of
-dat het leidt tot onverwachtse resultaten door data races\cite{pro13}. Deze
-bijwerkingen kunnen worden verklaard doordat data in imperatieve
-programmeertalen muteerbaar is en deze talen inherent sequentieel zijn.
+\subsection{Parallel en Gedistribueerd programmeren}
+\label{subsec:3-1}
 
-Functionele programmeertalen hebben echter geen van de bovengenoemde problemen.
-Deze talen niet afhankelijk van de evaluatie volgorde en zijn er geen locks of
-mutexes, wat ze uitsluit voor deadlocks. Dit maakt het mogelijk om
-verschillende stukken van een expressie parallel te evalueren, wat een pre is
-voor gedistribueerd programmeren. Tevens is de data in de functionele
-programmeertalen niet muteerbaar, wat inhoudt dat er geen bijwerkingen zijn
-en data races niet tot nauwelijks voor kunnen komen in deze talen.
+Sinds de uitvinding van het internet en \textit{big data} is er buiten de
+academische wereld hernieuwde interesse ontstaan in de functionele talen.
+Zoals beschreven door~\textcite{src10} zijn er met komst van big data
+nieuwe manieren van dataverwerking nodig, aangezien de traditionele manieren
+niet langer toereikend zijn. Deze nieuwe manieren van dataverwerking baseren
+zich op twee vormen van computatie die door de goedkopere en verbeterede
+hardware componenten en de komst van de \textit{multi-core processor} een
+geheel nieuw domein aan mogelijkheden openen; namelijk \textit{parallel} en
+\textit{gedistrubeerd} computeren~\cite{src10,src11}.
 
-Functionele programmeertalen zijn ook erg schaalbaar. Door het gebruik van
-hogere graads functies kunnen functies gedeeltelijk worden toegepast. Dit
-maakt het mogelijk om nieuwe functies van oude functies af te leiden, wat
-ervoor zorgt dat de functies onafhankelijk zijn en zeer schaalbaar. Door de
-schaalbaarheid van deze talen zijn de algoritmes geschreven in een functionele
-taal vaak korter en leesbaarder dan in een imperatieve programmeertaal. Door
-vervolgens een collectie van gerelateerde functies te combineren ontstaan er
-zogeheten modules, welk herbruikbaar en gemakkelijk te beheren zijn.
-Functionele talen zijn dus geschikt wanneer er een vaste verzameling
-\textit{dingen} is en naarmate de code evalueert, er voornamelijk nieuwe
-bewerkingen toe worden gevoegd aan deze bestaande dingen. Wat deze talen zeer
-geschikt maakt voor het manipuleren van symbolische data in boom formaat.
-Dit in tegenstelling tot imperatieve talen, welke zich meer schikken naar een
-vaste set bewerkingen op \textit{dingen} en naarmate de code evalueert, er
-vooral nieuwe dingen worden toegevoegd.
+Het is dan ook om deze redenen dat er hedendaags nieuwe interesse is in
+functioneel programmeren. Voordat we echter kunnen vertellen waarom
+fuctionele programma's zo geschikt zijn voor parallel en gedistrubeerd
+programmeren, zullen we eerst kijken naar wat de valkuilen zijn van deze
+vormen van programmeren en waarom de imperatieve stijl van programmeren
+hiervoor minder geschikt wordt geacht.
+
+Volgens~\textcites{src13} is gedistribueerd en parallel computeren
+complex en niet zonder enige risico's. Het is complex in de zin dat voor het
+uitvoeren van een programma op een gedistrubeerde of parallele manier het
+curciaal is dat de evaluatie volgende van het programma klopt. Dit omdat de
+proccessoren niet op dezelfde snelheid een programma evalueren en executeren;
+ze hebben dus niet dezelfde \textit{throughput}. In een imperatief programma is
+dit \"e\"en van de grootste oorzaken van bugs~\cite{src1}. Zoals te zien is
+in~\cref{subsec:2-1} maken deze programma's gebruik van een memory state, welke
+aangepast kan worden door de instructies van het programma. Als deze
+aanpassingen niet in de bedoelde volgorde gebeurt wordt het een bug en is er
+sprake van een \textit{race conditie}.
+
+In~\citetitle{src14} vertellen~\citeauthor{src14} dat in imperatieve
+programma's een concept genaamd \textit{locks} (ook wel \textit{mutexes}
+genoemd) is ge\"introduceerd om deze race condities tegen te gaan. Deze
+oplossing werkt, maar introduceert op zijn beurt weer een nieuw
+probleem, namelijk \textit{deadlock}. Deze toestand genaamd deadlock is het
+gevolg van de mutaties op data die mogelijk zijn in een imperatief progamma.
+Deze situatie van locks en deadlocks an ook een klassiek voorbeeld van een
+\textit{side-effect}.
+
+Het is dus wenselijk een side-effect vrij programma te hebben, maar hoe is dit
+mogelijk? Volgens~\citeauthor{src14}~\cite{src14,src15} ligt de oplossing in
+het gebruik van een functionele programmeertaal. Functionele programmeertalen
+hebben geen van de bovengenoemde problemen. Zo zijn ze inherent parallel en is
+data in deze programma's niet muteerbaar, omdat er geen \textit{assigment}
+declaratie is. Dit elimineert gelijk een belangrijke bron van bugs, zoals de
+deadlock en race conditie en maakt de executie volgorde van deze programma's
+irrelevant.
+
+\subsection{Schaalbaar en Modulair}
+\label{subsec:3-2}
+
+In~\cref{sec:1} werd al kort aangehaald dat functionele programma's modulair
+zijn doordat functies opgebouwd zijn uit andere functies, een concept genaamd
+\textit{currying}~\cite[hfdst.~5]{src16}.
+
+Het voordeel van currying is door deze manier van functie applicatie, functies
+gedeeltelijk kunnen worden toepast~\cite{src1}. Door het gedeeltelijk
+toepassen van deze functies, kunnen er nieuwe functies van oude afgeleid
+worden, functies zijn dus erg schaalbaar. Dit maakt dat functionele programma's
+gemakkelijk modulair kunnen worden opgebouwd; wat volgens~\textcite{src17}
+wordt beschouwt als \'e\'en van de belangrijkste punten in het succesvol
+construeren van herbruikbare en onderhoudbare software. Ook
+spreken~\textcite{src18} hun voorkeur uit over de modulaire aanpak van het
+ontwerpen van software, omdat er hierdoor toekomstige legacy problemen,
+zoals wordt besproken in~\cref{subsec:4-2} kunnen worden voorkomen.
+
+Dat modulair programmeren een pre is blijkt uit de bovengenoemde bronnen, maar
+wat is een module nu precies? \textcite[hdfst.~6]{src16} beschrijft een module
+als: \enquote{Een module een collectie van gerelateerde functies, types en
+typeclasses}. Wat types en typeclasses zijn is in dit document niet relevant.
+Wat wel relevant is dat door de modulariteit en schaalbaarheid van functionele
+programma's veel algoritmes in vaak korter zijn dan in een imperatief
+programma. Zo zien we hieronder een twee versies van een quicksort algoritme;
+een imperatieve versie in C en een functionele versie in Haskell.
+
+\begin{lstlisting}[style=CStyle]
+  void Sort(int input[],int left,int right)
+  {
+    int L = left;
+    int R = right;
+    int M = input[(left + right) / 2];
+
+    do
+    {
+      while(input[L] < M)
+      {
+        L++;
+      }
+      while(M < input[R])
+      {
+       R--;
+      }
+
+      if(L <= R)
+      {
+        int inputLeft = input[L];
+        input[L] = input[R];
+        input[R] = inputLeft ;
+        L++;
+        R--;
+      }
+   } while(L < R);
+
+    if(left < R)
+    {
+      Sort(input, left, R);
+    }
+    if(L < right)
+    {
+      Sort(input, L, right);
+    }
+  }
+
+  void QuickSort(int input[], int length)
+  {
+    Sort(input, 0, length - 1);
+  }
+}
+\end{lstlisting}
+
+\begin{lstlisting}[style=HsStyle]
+quicksort :: Ord a => [a] -> [a]
+quicksort []     = []
+quicksort (p:xs) =
+   (quicksort lesser) ++ [p] ++ (quicksort greater)
+    where
+        lesser  = filter (< p) xs
+        greater = filter (>= p) xs
+\end{lstlisting}
+
+Wat we in het bovengenoemde voorbeeld zien is dat de tweede versie korter
+en leesbaarder is dan de eerste versie. Ook valt op dat de tweede versie
+verklarend en expressief is. Dit in tegenstelling tot de de eerste versie, waar
+we duidelijk de imperatieve aard terug zien in de sequentieel instructies die
+door het algortime dienen te worden uitgevoerd.
+
 
 %------------------------------------------------------------------------------
 
 \section{Algemene nadelen functioneel programmeren}
-Dat functioneel programmeren tegenwoordig voor steeds meer situaties en
-problemen een gangbare oplossing is, zagen we in de vorige sectie. Echter zijn
-er ook situaties en problemen die zich niet schikken voor een functionele
-oplossing. Embedded systemen is \'e\'en van deze gebieden waarin functionele
-programmeertalen niet geschikt zijn voor het schrijven van programma's
-(ook wel firmware genoemd).
+\label{sec:4}
 
-Embedded systemen zijn gemaakt voor het uitvoeren van een specifieke taak
-en beschikken vaak over weinig intern geheugen. Ook kunnen deze systemen een
-andere processor hebben die kan verschillen met de processor die normaliter in
-een algemene (thuis)computer zit. Door het beperkte interne geheugen en de vele
-verschillende processoren, zijn functionele programmeertalen niet geschikt
-voor het schrijven van de firmware voor deze systemen. Functionele
-programmeertalen gebruiken namelijk aanzienlijk meer geheugen dan hun
-imperatieve tegenhangers. Data is in deze talen niet muteerbaar en voor elke
-berekening moet er een nieuw stuk geheugen worden aangesproken.
+Dat de functionele stijl van programmeren tegenwoording steeds vaker wordt
+overwogen, zagen we in~\cref{sec:3}. Er zijn echter ook gebieden en problemen
+die zich niet schikken voor een functionele aanpak van het probleem.
+In~\cref{subsec:4-1} en~\cref{subsec:4-2} wordt er dan ook onderzocht waar deze
+desinteresse vandaan komt.
 
-Doordat er weinig geheugen beschikbaar is in deze systemen en er veel
-verschillende processorarchitecturen bestaan, is het voor veel programmeurs
-noodzakelijk om direct het geheugen te kunnen controleren. Echter zijn veel
-functionele programmeertalen afhankelijk van compiler optimalisatie, waar de
-compiler vaak geleverd wordt met een garbage collector. Het gebruik van een
-garbage collector is voor embedded systemen een enorme beperking aangezien de
-programmeur het onderliggende geheugen niet kan controleren. Door deze
-beperking zijn de meeste functionele programmeertalen aanzienlijk langzamer ten
-opzichte van imperatieve programmeertalen en kan het verlies in snelheid worden
-teruggeleid en verklaard door de focus op abstractie van de functionele talen.
-Door de focus op abstractie duurt een translatie van een programma naar machine
-code in een functionele programmeertaal door de compiler vaak langer dan
-dezelfde translatie gedaan in \'e\'en van de imperatieve talen.
+\subsection{Portabiliteit en Beschikaarheid}
+\label{subsec:4-1}
 
-Een andere veel voorkomend probleem is dat veel van de huidige systemen die
-momenteel in de omloop zijn, geschreven zijn in een imperatieve taal. Veel van
-deze systemen zijn al jaren in ontwikkeling en een complete herschrijving van
-zulke systemen is vaak erg tijdrovend en niet winstgevend. Door vervolgens
-nieuwe functionele code te koppelen met de huidige imperatieve systemen,
-ontstaan er koppelingsproblemen.
+Beschikbaarheid en portabiliteit van functionele talen op verschillende
+architecturen en platformen is een grote reden waarom het soms beter is te
+besluiten tegen het gebruik van deze talen en te kiezen voor een imperatieve
+tegenhanger. Er zijn dan ook genoeg projecten waarvan de ontwikkelaars liever
+het project hadden gebouwd in een functionele taal, maar vervolgens toch
+besloten te kiezen voor C of C++. E\'en van deze projecten is de taal voor de
+PRL database. Volgens~\textcite{src19} besloten onderzoekers van Lucent om
+deze taal te bouwen in SML, om ultimatum te kiezen C++, omdat SML niet
+beschikbaar was op het Amdahl mainframe.
+
+Dezelfde problemen zien we in \textit{embedded systems}~\cite{src20}. Bij het
+programmeren van deze systemen moet er rekening worden gehouden dat de
+architectuur van deze veel kan verschillen van de algemene computer en dat er
+weinig intern geheugen beschikbaar is~\cite{src21,src22}. Om toch goede
+programma's te kunnen schrijven voor deze systemen is het dus noodzakelijk voor
+de programmeur om direct het geheugen te kunnen controleren.
+
+Functionele programma's alloceren echter in korte tijd veel geheugen. Dit is
+geen probleem op systemen met genoeg geheugen, maar wordt een probleem in
+een embedded omgeving. Om ervoor te zorgen dat voldoende geheugen beschikbaar
+is, worden zogenaamde cells na gebruik vrijgegeven door een \textit{garbage
+collector}~\cite{src23}. Deze afhankelijkheid van garbage collectie zorgt ervoor dat er
+beperkte controle is over het geheugen. Dit gebrek over controle van het
+geheugen maakt de meeste moderne functionele talen niet geschikt voor embedded
+systemen, zeker de systemen met weinig geheugen of harde \textit{real-time}
+beperkingen~\cite{src24}.
+
+\subsection{Legacy code en Infrastructuur}
+\label{subsec:4-2}
+
+Er is veel commerici\"ele software in de omloop dat is gedateerd en kan
+profiteren van de voordelen van functioneel programmeren (zie~\cref{sec:3}).
+Om deze voordelen te benutten moet de huidige infrastructuur van deze systemen
+worden veranderd, wat in de praktijk een nogal lastig en gevoelig onderwerp
+blijkt te zijn. Er is namelijk hevig ge\"investeerd in deze systemen  en is de
+werking van ervan vaak verwoven met de gebruiksdoeleinde~\cite{src18,src25}.
+
+Vervanging is dus lastig, zeker als er nagegaan wordt dat na decennia lang
+schrijven van software, systemen vaak samengesteld zijn uit componenten. Veel
+van deze componenten zijn geschreven in een imperatieve programmeertaal zoals C
+of C++, waardoor een \textit{foreign function interface} met C, en andere
+interfaces naar andere talen vaak noodzakelijk is om de achterwaartse
+comptabiliteit te garanderen\cite{src19}. Echter door de isolationistische
+natuur van functionele talen zijn deze foreign function interface moeilijk
+implementeerbaar is, zeker voor functionele talen die gebruik maken van
+\textit{lazy evaluation}~\cite[p.~149]{src26}.
 
 \section{Conclusie}
-Met de komst van het internet en big data zijn de traditionele manieren van
-dataverwerking (single processed). HJet duurt voor de 
-parallel, gelijktijdig en gedistribueerd programmeren.
-probleem kan worden 
-% \blindtext % Dummy text
+\label{sec:5}
+
+In dit document is er gediscussieerd over de voordelen en nadelen van het
+functioneel programmeren. In~\cref{sec:3} werd duidelijk dat met de komst van
+het internet en de ontwikkelingen op hardware gebied er hernieuwde interesse is
+voor functioneel programmeren. De schaalbaarheid, modulariteit, niet muteerbare
+datastructuren en het inherent vermogen om parallel expressies te evalueren
+maken functionele talen een uitermate geschikt stuk gereedschap om software te
+schrijven voor de 21$^e$ eeuw.
+
+Het is echter misschien iets te vroeg om te stellen dat de functionele stijl
+van programmeren de toekomst is. Zo zien we nog steeds geen functionele opmars
+in de embedded systems hoek en worden legacy problemen in grote commerici\"ele
+software systemen nog altijd imperatief opgelost.
+
+Er is een glansrijke toekomst voor de functionele stijl van programmer, maar
+vooralsnog moet er goed gekeken worden naar de probleemstelling en het doel
+voor er paradigmatisch besluit kan worden genomen.
 
 %------------------------------------------------------------------------------
 %	REFERENCE LIST
 %------------------------------------------------------------------------------
 
-\bibliographystyle{IEEEtran}
-\bibliography{main}
+\printbibliography
 
 \clearpage
 \onecolumn
@@ -365,82 +559,113 @@ probleem kan worden
 
   \AppendixSection{Terminologie}
 
+  \AppendixItem{Assignment}{
+    Een \textit{assignment} stelt de waarde in die is opgeslagen in de
+    opslaglocatie die wordt aangeduid met een variabelenaam.
+  }
+
+
   \AppendixItem{Big Data}{
     Data sets die zo enorm en complex zijn dat traditionele
     dataverwerkingssoftware niet langer toereikend zijn.
   }
 
-  \AppendixItem{Gedistribueerd proces}{
-    Een gedistribueerd is een proces waar een enkele taak wordt opgesplitst in
-    meerdere subtaken die onafhankelijk berekend worden en vervolgens weer
-    worden samengevoegd tot \'e\'en resultaat, zoals te zien in
-    figuur~\ref{fig:./fig/distributed_process.png}.
+  \AppendixItem{Deadlock}{
+    \textit{Deadlock}, zoals te zien in~\cref{fig:./fig/deadlock.png} is een
+    toestand waarin elk proces wacht op een ander proces. Deze toestand kan
+    voorkomen wanneer de locks worden verkregen in de verkeerde volgorde.
+    \fig{0.3}{./fig/deadlock.png}{Deadlock (source:
+    wikipedia.org/wiki/Deadlock)}
+  }
+
+  \AppendixItem{Foreign function interface}{
+    Een \textit{foreign function interface} (FFI) is een mechanisme waarmee een
+    programma dat in een programmeertaal is geschreven, routines kan noemen of
+    gebruik kan maken van services die in een andere taal zijn geschreven.
+  }
+
+  \AppendixItem{Gedistribueerde computatie}{
+    Een \textit{gedistribueerd computatie} is een computatie waar een enkele
+    taak wordt opgesplitst in meerdere subtaken. Deze subtaken worden
+    vervolgens gedistribueerd over verschillende nodes in een netwerk en
+    onafhankelijk berekent. Als al deze computaties gedaan zijn zullen deze
+    onafhankelijke berekeningen worden samengevoegd tot \'e\'en resultaat,
+    zoals te zien in~\cref{fig:./fig/distributed_process.png}.
     \fig{0.7}{./fig/distributed_process.png}{Gedistribueerd proces}
-  }
-
-  \AppendixItem{Lambda calculus}{
-    Het originele model achter de computer, bedacht door de wiskundige Alan
-    Turing in 1936.
-  }
-
-  \AppendixItem{Multi-core processor}{
-    Multi-core processoren, bestaan uit verschillende processoren en gedeeld
-    geheugen, zie figuur~\ref{fig:./fig/mutlicore.png}. Deze processoren zijn
-    sneller en hebben een lager energieverbruik dan de single-core
-    processor, zie figuur~\ref{fig:./fig/singlecore.png}, echter is het
-    programmeren voor deze architectuur een stuk lastiger.
-    \fig{0.3}{./fig/mutlicore.png}{Multi-core processor}
   }
 
   \newpage
 
-  \AppendixItem{Parallel proces}{
-    Een parallel proces is een vorm van computatie waarin meerdere calculaties
-    simultaan kunnen worden uitgevoerd. Deze vorm van executie is sinds de
-    komst van de multi-core processor, zie
-    figuur~\ref{fig:./fig/mutlicore.png} het dominante paradigma in computer
+  \AppendixItem{Lock/Mutex}{
+    \textit{Lock}, zoals te zien in~\cref{fig:./fig/lock.png} is een mechanisme
+    om het benaderen van een bron in een omgeving te beperken.
+    \fig{0.3}{./fig/lock.png}{Lock/Mutex}
+  }
+
+  \AppendixItem{Memory leak}{
+    Een \textit{Memory leak} betekent dat een programma meer geheugen toewijst
+    dan nodig voor de executie. Dit kan over tijd erg oplopen aangezien dit
+    niet gebruikte geheugen nooit opnieuw toegewezen kan worden, zonder het
+    wordt gedealloceerd.
+  }
+
+  \AppendixItem{Multi-core processor}{
+    \textit{Multi-core processoren}, bestaan uit verschillende processoren en
+    gedeeld geheugen, zie~\cref{fig:./fig/mutlicore.png}. Deze processoren zijn
+    sneller en hebben een lager energieverbruik dan de single-core processor,
+    zie~\cref{fig:./fig/singlecore.png}, echter is het programmeren voor deze
+    architectuur een stuk lastiger.
+    \fig{0.3}{./fig/mutlicore.png}{Multi-core processor}
+  }
+
+  \AppendixItem{Memory state}{
+    \textit{Memory state} alle opgeslagen ingegeven waardes van een programma
+    als variabelen of constanten. Bij het analyseren van de status van dit
+    programma kunnen programmeurs deze opgeslagen ingegeven waardes bekijken.
+  }
+
+  \AppendixItem{Parallele computatie}{
+    Een \textit{parallele computatie} is een vorm van computatie waarin
+    meerdere calculaties simultaan kunnen worden uitgevoerd. Deze vorm van
+    executie is sinds de komst van de multi-core processor,
+    zie~\cref{fig:./fig/mutlicore.png} het dominante paradigma in computer
     architectuur.
 
-    Parallelle processen kunnen in verschillende situatie voorkomen, zoals te
-    zien in
-    figuur~\ref{fig:./fig/parallel_process_threads.png_./fig/parallel_process_cores.png}.
-    In figuur~\ref{fig:./fig/parallel_process_threads.png}
-    is er ingezoomd op de parallelle executie van een proces draaiend op
-    \'e\'en kern. Een parallelle executie van zo'n proces wordt gedaan door
-    gebruik te maken van threads, zie figuur~\ref{fig:./fig/thread.png}. In
-    figuur~\ref{fig:./fig/parallel_process_cores.png} zien we een parallel
-    executie door middel van een multi-core processor
-    (figuur~\ref{fig:./fig/mutlicore.png}, waarbij er gebruik wordt gemaakt van
-    de extra kernen beschikbaar voor deze architectuur. Als deze verschillende
-    kernen of threads zinnig werk tegelijkertijd doen kan dit het gehele proces
-    versnellen.
-    \doublefig{0.3}{./fig/parallel_process_threads.png}{Threaded}
-    {0.3}{./fig/parallel_process_cores.png}{Kernen}{Parallele processen}
+    Een parallelle executie van een proces wordt gedaan door gebruik te maken
+    van threads, zie~\cref{fig:./fig/thread.png}.
+    In~\cref{fig:./fig/parallel_process_cores.png} zien we een parallel
+    executie op een multi-core processor (\cref{fig:./fig/mutlicore.png}).
+
+    Wat opvalt zijn de extra kernen van deze architectuur, die een
+    single-core processor, zoals te zien in~\cref{fig:./fig/singlecore.png}
+    niet heeft. Als deze verschillende kernen zinnig werk tegelijkertijd doen
+    kan dit het gehele proces versnellen.
+    \fig{0.3}{./fig/parallel_process_cores.png}{Parall proces}
   }
 
   \newpage
 
   \AppendixItem{Process \& Thread}{
-    Een thread is de kleinste sequentie van een programma dat onafhankelijk kan
-    opereren. Hoe een proces en thread opereren hangt af van de implementatie
-    van het operatie systeem. De meeste voorkomende implementatie is dat een
-    thread een onderdeel is van het proces, zoals te zien in
-    figuur~\ref{fig:./fig/thread.png}.
+    Een \textit{thread} is de kleinste sequentie van een programma dat
+    onafhankelijk kan opereren. Hoe een proces en thread opereren hangt af van
+    de implementatie van het operatie systeem. De meeste voorkomende
+    implementatie is dat een thread een onderdeel is van het proces, zoals te
+    zien in~\cref{fig:./fig/thread.png}.
     \fig{0.2}{./fig/thread.png}{Thread}
   }
 
   \AppendixItem{Race conditie}{
-    Twee processen P1 en  P2, kunnen beide schrijven naar de variabel
+    Twee processen P1 en P2, kunnen beide schrijven naar de variabel
     $tmp$. De intentie van de programmeur is dat zowel proces P1 als P2
     $tmp$ van een waarde voorziet, deze vervolgens gelijk te gebruiken en een
     uiteindelijke waarde voor $y$ en $z$ te presenteren. De executie van
-    algoritme~\ref{algo:algo1} levert de volgende waardes voor $y$ en $z$:
+    algoritme~\cref{algo:algo1} levert de volgende waardes voor $y$ en $z$:
     \begin{gather*}
       y = 24, z = 2055
     \end{gather}
 
     Echter doordat de processen op verschillende snelheden kunnen draaien, doet
-    zich een situatie voor, zoals te zien in algoritme~\ref{algo:algo2} waar de
+    zich een situatie voor, zoals te zien in algoritme~\cref{algo:algo2} waar de
     volgorde van executie niet wordt uitgevoerd zoals de programmeur had
     bedoeld. De executie van dit algoritme levert de volgende waardes voor $y$
     en $z$:
@@ -507,30 +732,32 @@ probleem kan worden
     \end{multicols}
   }
 
+  \AppendixItem{Real-time proces}{
+    Een \textit{real-time proces} is een proces waarin een programma het
+    resultaat moet garanderen binnen een bepaalde tijd.
+  }
+
+  \AppendixItem{Side-effect}{
+    Binnen de informatica heeft een programma, functie of expressie een
+    \textit{side-effect} wanneer het een waarde buiten zijn scope aanpast of
+    een interactie heeft met zijn aanroep functies of de rest van het programma
+    zonder een waarde te retourneren.
+  }
+
+
   \AppendixItem{Single-core Processor}{
-    Single-core processoren hebben maar 1 processor direct verbonden aan het
-    gerheugen. Deze processoren zijn gemakkelijk te programmeren, maar hebben
-    echter een lagere hoog energieverbruik en een lage prestatie, in
-    tegenstelling tot de multi-core processor, zie
-    figuur~\ref{fig:./fig/mutlicore.png}.
+    \textit{Single-core processoren} hebben maar 1 processor direct verbonden
+    aan het gerheugen. Deze processoren zijn gemakkelijk te programmeren, maar
+    hebben echter een lagere hoog energieverbruik en een lage prestatie, in
+    tegenstelling tot de multi-core processor,
+    zie~\cref{fig:./fig/mutlicore.png}.
     \fig{0.3}{./fig/singlecore.png}{Single-core processor}
   }
 
   \AppendixItem{Throughput}{
-    Maximale snelheid waarop \textit{iets} kan worden verwerkt.
+    \textit{Throughput} is de maximale snelheid waarop \textit{iets} kan worden
+    verwerkt.
   }
-
-
-  \AppendixItem{Turingmodel}{
-    Het originele model achter de computer, bedacht door de wiskundige Alan
-    Turing in 1936.
-  }
-
-  \AppendixItem{Turingvolledig}{
-    \textit{Iets} is turingvolledig, wanneer het een turing machine kan
-    simuleren.
-  }
-
 
 \end{appendices}
 

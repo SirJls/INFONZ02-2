@@ -1,6 +1,9 @@
 $pdflatex = 'ppdflatex -interaction=nonstopmode -synctex=1 --shell-escape %O %S';
 
+$biber='biber --isbn-normalise %O %S';
+
 $out_dir = "dist";
+
 
 $pdf_mode = 1;
 
