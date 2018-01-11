@@ -208,15 +208,15 @@
     \noindent
     Met de komst van het internet, big data en de toenemende capaciteit van
     computers is er vernieuwde interesse in de functionele programmeertalen.
-    Dit rapport bekijkt samen met de lezer de voor en nadelen bij de stelling
-    ``Het functionele paradigma is de toekomst.'' Dit gebeurt op basis van een
-    literatuuronderzoek naar de relaties en verschillen van de heersende
-    programmeerparadigma's. Het onderzoek beperkt zich tot het imperatieve en
-    functionele paradigma. Om het functionele paradigma en zijn plaats binnen
-    de informatica beter te kunnen begrijpen is er binnen dit onderzoek van een
-    minimale kennisgeving van de heersende programmeerparadigma's uitgegaan.
-    Ook is kennis van programmeren wenselijk, maar het onderzoek kan ook prima
-    zonder deze kennis worden gevolgd.
+    Dit rapport onderzoekt samen met de lezer de voor en nadelen bij de
+    stelling ``Het functionele paradigma is de toekomst.'' Dit gebeurt op basis
+    van een literatuuronderzoek naar de relaties en verschillen van de
+    heersende programmeerparadigma's. Het onderzoek beperkt zich tot het
+    imperatieve en functionele paradigma. Om het functionele paradigma en zijn
+    plaats binnen de informatica beter te kunnen begrijpen is er binnen dit
+    onderzoek van een minimale kennisgeving van de heersende
+    programmeerparadigma's uitgegaan. Ook is kennis van programmeren wenselijk,
+    maar het onderzoek kan ook prima zonder deze kennis worden gevolgd.
   \end{abstract}
 }
 
@@ -239,8 +239,8 @@ overtuigen van de significantie van functioneel programmeren als ook te
 informeren wat de voordelen en nadelen zijn van dit paradigma.
 
 Functioneel programmeren dankt zijn naam aan zijn fundamentele werking,
-namelijk de toepassing van functies op argumenten. Dit beschrijft heel mooi wat
-programmeren inhoudt, maar wat is nu eigenlijk een functioneel programma? Een
+namelijk de toepassing van functies op argumenten. Dit beschrijft wat
+het inhoudt, maar wat is nu eigenlijk een functioneel programma? Een
 mooie beschrijving van een functioneel programma is die van~\textcite{src1}:
 \enquote{Een functioneel programma is een functie waar de gegeven input voor
 dit programma wordt behandeld als argument van een functie, welk vervolgens het
@@ -268,7 +268,7 @@ is de toekomst``}.
 \label{sec:2}
 
 In dit middenstuk wordt er eerst korte uitleg gegeven over imperatief
-programmeren. De ge\"iformeerde lezer kan ervoor kiezen deze paragraaf over te
+programmeren. De ge\"informeerde lezer kan ervoor kiezen deze paragraaf over te
 slaan, maar moet onthouden dat kennis van imperatief programmeren benodigd is
 in de volgende paragrafen.
 
@@ -299,9 +299,10 @@ programmeren wordt gegeven door~\textcite[hfdst.~3]{src6} en luidt als volgt:
 \end{quote}
 
 Kort samengevat is het een stijl van programmeren dat direct ge\"inspireerd is
-door assembleer, en net als in assembleer zijn imperatieve programma's in staat
-de memory state van een programma aan te passen. Input-output acties zijn in
-imperatieve programma's dan ook modificaties van het geheugen.
+door assemblage taal, en net als in assemblage taal zijn
+imperatieve programma's in staat de memory state van een programma aan te
+passen. Input-output acties zijn in imperatieve programma's dan ook
+modificaties van het geheugen.
 
 %------------------------------------------------------------------------------
 
@@ -310,16 +311,11 @@ imperatieve programma's dan ook modificaties van het geheugen.
 
 Uit het onderzoek van~\textcites{src7}{src8} blijkt dat de imperatieve stijl
 hedendaags nog steeds de populairste vorm van programeren is. Wat echter opvalt
-is dat er enkele functionele talen in deze resultaten (Erlang,
-Scala, F#, Haskell, Clojure) staan, en dit is niet toevallig.
-Na~\textcite{src9} Turing Award lezing in 1977 was er een verandering binnen de
-academische wereld. Veel academici en wetenschappers waren gen\"inspireerd en
-begonnen te investeren in deze stijl van programmeren; erg verassend aangezien
-deze vorm van programmeren na de jaren 60 als een een onconventionele,
-onwerkbare vorm van software ontwikkeling werd gezien. Het moest echter nog een
-kleine 30 jaar duren voordat er buiten de academische en wetenschappelijke hoek
-nieuwe interesse was voor deze vergeten stijl van programmeren. In deze
-paragraaf wordt de aanleiding van deze nieuw gevonden interesse onderzocht.
+is dat er enkele functionele talen in deze resultaten (Erlang, Scala, F#,
+Haskell, Clojure) staan, en dit is niet toevallig.
+
+In~\cref{subsec:3-1} en~\cref{subsec:3-2} wordt de aanleiding van deze nieuwe
+interesse in functionele talen onderzocht.
 
 \subsection{Parallel en Gedistribueerd programmeren}
 \label{subsec:3-1}
@@ -329,47 +325,46 @@ academische wereld hernieuwde interesse ontstaan in de functionele talen.
 Zoals beschreven door~\textcite{src10} zijn er met komst van big data
 nieuwe manieren van dataverwerking nodig, aangezien de traditionele manieren
 niet langer toereikend zijn. Deze nieuwe manieren van dataverwerking baseren
-zich op twee vormen van computatie die door de goedkopere en verbeterede
+zich op twee vormen van computatie die door de goedkopere en verbeterde
 hardware componenten en de komst van de \textit{multi-core processor} een
 geheel nieuw domein aan mogelijkheden openen; namelijk \textit{parallel} en
 \textit{gedistrubeerd} computeren~\cite{src10,src11}.
 
-Het is dan ook om deze redenen dat er hedendaags nieuwe interesse is in
-functioneel programmeren. Voordat we echter kunnen vertellen waarom
-fuctionele programma's zo geschikt zijn voor parallel en gedistrubeerd
-programmeren, zullen we eerst kijken naar wat de valkuilen zijn van deze
-vormen van programmeren en waarom de imperatieve stijl van programmeren
-hiervoor minder geschikt wordt geacht.
+Voordat we zien waarom fuctionele talen zo geschikt zijn voor parallel en
+gedistrubeerd programmeren, zal er eerst gekeken moeten worden waarom de
+imperatieve stijl van programmeren niet volstaat voor deze vorm van computatie.
 
-Volgens~\textcites{src13} is gedistribueerd en parallel computeren
-complex en niet zonder enige risico's. Het is complex in de zin dat voor het
-uitvoeren van een programma op een gedistrubeerde of parallele manier het
-curciaal is dat de evaluatie volgende van het programma klopt. Dit omdat de
-proccessoren niet op dezelfde snelheid een programma evalueren en executeren;
-ze hebben dus niet dezelfde \textit{throughput}. In een imperatief programma is
-dit \"e\"en van de grootste oorzaken van bugs~\cite{src1}. Zoals te zien is
-in~\cref{subsec:2-1} maken deze programma's gebruik van een memory state, welke
-aangepast kan worden door de instructies van het programma. Als deze
-aanpassingen niet in de bedoelde volgorde gebeurt wordt het een bug en is er
-sprake van een \textit{race conditie}.
+In~\cref{subsec:2-1} werd al gesproken over het gebruik van een memory state in
+deze imperatieve programma's. Het is nu juist het gebruik van deze muteerbare
+memory state die het parallel en gedistribueerd computeren compliceert. Doordat
+imperatieve programma's inherent sequentieel zijn, is de volgorde van executie
+in een parallel of gedistrubeerd programma belangrijk. Wijkt de volgorde van
+executie echter af, dan kan er een \textit{race conditie} ontstaan.
 
+Race condities zijn \'e\'en van de grootste oorzaken van bugs in een parallel
+en gedistrubeerd programma en ontstaan wanneer twee processen allebei
+tegelijkertijd naar een stukje geheugen willen schrijven~\cite{src1}.
+
+Het voorkomen van race race condities is niet gemakkelijk, zeker omdat in een
+moderne multi-core CPU, deze CPU'S niet dezelfde \textit{througput} hebben.
 In~\citetitle{src14} vertellen~\citeauthor{src14} dat in imperatieve
 programma's een concept genaamd \textit{locks} (ook wel \textit{mutexes}
-genoemd) is ge\"introduceerd om deze race condities tegen te gaan. Deze
-oplossing werkt, maar introduceert op zijn beurt weer een nieuw
-probleem, namelijk \textit{deadlock}. Deze toestand genaamd deadlock is het
-gevolg van de mutaties op data die mogelijk zijn in een imperatief progamma.
-Deze situatie van locks en deadlocks an ook een klassiek voorbeeld van een
-\textit{side-effect}.
+genoemd) is ge\"introduceerd om deze race condities tegen te gaan. Een werkende
+oplossing die echter op zijn beurt een nieuw probleem, namelijk
+\textit{deadlock} introduceert.
 
-Het is dus wenselijk een side-effect vrij programma te hebben, maar hoe is dit
-mogelijk? Volgens~\citeauthor{src14}~\cite{src14,src15} ligt de oplossing in
-het gebruik van een functionele programmeertaal. Functionele programmeertalen
-hebben geen van de bovengenoemde problemen. Zo zijn ze inherent parallel en is
-data in deze programma's niet muteerbaar, omdat er geen \textit{assigment}
-declaratie is. Dit elimineert gelijk een belangrijke bron van bugs, zoals de
-deadlock en race conditie en maakt de executie volgorde van deze programma's
-irrelevant.
+Deadlock is een  toestand die door de muteerbare data van een imperatief
+programma mogelijk is. Programma's met een dergelijke situatie lijden dan ook
+aan een \textit{side-effect}.
+
+Het is dus wenselijk side-effects te voorkomen in een programma, maar hoe is
+dit mogelijk? Volgens~\citeauthor{src14}~\cite{src14,src15} ligt de oplossing
+in het gebruik van een functionele programmeertaal. Functionele
+programmeertalen hebben geen van de bovengenoemde problemen. Zo zijn ze
+inherent parallel en is data in deze programma's niet muteerbaar, omdat er geen
+\textit{assigment} declaratie is. Dit elimineert een belangrijke bron van bugs,
+zoals de deadlock en race conditie en maakt de executie volgorde van deze
+programma's irrelevant.
 
 \subsection{Schaalbaar en Modulair}
 \label{subsec:3-2}
@@ -379,24 +374,25 @@ zijn doordat functies opgebouwd zijn uit andere functies, een concept genaamd
 \textit{currying}~\cite[hfdst.~5]{src16}.
 
 Het voordeel van currying is door deze manier van functie applicatie, functies
-gedeeltelijk kunnen worden toepast~\cite{src1}. Door het gedeeltelijk
-toepassen van deze functies, kunnen er nieuwe functies van oude afgeleid
-worden, functies zijn dus erg schaalbaar. Dit maakt dat functionele programma's
-gemakkelijk modulair kunnen worden opgebouwd; wat volgens~\textcite{src17}
-wordt beschouwt als \'e\'en van de belangrijkste punten in het succesvol
-construeren van herbruikbare en onderhoudbare software. Ook
-spreken~\textcite{src18} hun voorkeur uit over de modulaire aanpak van het
-ontwerpen van software, omdat er hierdoor toekomstige legacy problemen,
-zoals wordt besproken in~\cref{subsec:4-2} kunnen worden voorkomen.
+gedeeltelijk kunnen worden toepast~\cite{src1}. Hierdoor kunnen er nieuwe
+functies van oude afgeleid worden en maakt een functionele taal erg schaalbaar.
 
-Dat modulair programmeren een pre is blijkt uit de bovengenoemde bronnen, maar
-wat is een module nu precies? \textcite[hdfst.~6]{src16} beschrijft een module
-als: \enquote{Een module een collectie van gerelateerde functies, types en
-typeclasses}. Wat types en typeclasses zijn is in dit document niet relevant.
-Wat wel relevant is dat door de modulariteit en schaalbaarheid van functionele
-programma's veel algoritmes in vaak korter zijn dan in een imperatief
-programma. Zo zien we hieronder een twee versies van een quicksort algoritme;
-een imperatieve versie in C en een functionele versie in Haskell.
+Door deze schaalbaarheid is het gemakkelijker modulair software te schrijven.
+Deze manier van software maken wordt volgens vele al jaren lang beschouwt als
+\'e\'n van de belangrijkste punten in het construeren van herbruikbare en
+onderhoudbare software~\cite{src17}. Zo spreken ook~\textcite{src18} hun
+voorkeur uit over de modulaire aanpak van het ontwerpen van software, omdat er
+hierdoor toekomstige legacy problemen kunnen worden voorkomen; hierover meer
+in~\cref{subsec:4-2}.
+
+Modulair programmeren is dus een pre, maar wat is een module nu precies?
+\textcite[hdfst.~6]{src16} beschrijft een module als: \enquote{Een module een
+collectie van gerelateerde functies, types en typeclasses}. Wat types en
+typeclasses zijn is in dit document niet relevant. Wat wel relevant is dat door
+de modulariteit en schaalbaarheid van functionele programma's veel algoritmes
+in vaak korter zijn dan in een imperatief programma. Zo zien we hieronder een
+twee versies van quicksort; een imperatieve versie in C en een functionele
+versie in Haskell.
 
 \begin{lstlisting}[style=CStyle]
   void Sort(int input[],int left,int right)
@@ -453,12 +449,11 @@ quicksort (p:xs) =
         greater = filter (>= p) xs
 \end{lstlisting}
 
-Wat we in het bovengenoemde voorbeeld zien is dat de tweede versie korter
-en leesbaarder is dan de eerste versie. Ook valt op dat de tweede versie
-verklarend en expressief is. Dit in tegenstelling tot de de eerste versie, waar
-we duidelijk de imperatieve aard terug zien in de sequentieel instructies die
-door het algortime dienen te worden uitgevoerd.
-
+Wat uit het bovengenoemde voorbeeld opvalt is dat de functionele versie veel
+duidelijker en expressiever is, dan de imperatieve versie. In de imperatieve
+versie is de bedoeling van het programma niet gelijk duidelijk en moet er
+sequentieel over het programma worden gelopen om te begrijpen wat de bedoeling
+ervan is.
 
 %------------------------------------------------------------------------------
 
@@ -505,21 +500,20 @@ beperkingen~\cite{src24}.
 \label{subsec:4-2}
 
 Er is veel commerici\"ele software in de omloop dat is gedateerd en kan
-profiteren van de voordelen van functioneel programmeren (zie~\cref{sec:3}).
-Om deze voordelen te benutten moet de huidige infrastructuur van deze systemen
-worden veranderd, wat in de praktijk een nogal lastig en gevoelig onderwerp
-blijkt te zijn. Er is namelijk hevig ge\"investeerd in deze systemen  en is de
-werking van ervan vaak verwoven met de gebruiksdoeleinde~\cite{src18,src25}.
+profiteren van de voordelen van functioneel programmeren. Om deze voordelen te
+benutten moet de huidige infrastructuur van deze systemen worden veranderd, wat
+in de praktijk een nogal lastig en gevoelig onderwerp blijkt te zijn. In de
+systemen is namelijk hevig ge\"investeerd en de werking ervan is vaak verwoven
+met de gebruiksdoeleinde~\cite{src18,src25}.
 
 Vervanging is dus lastig, zeker als er nagegaan wordt dat na decennia lang
 schrijven van software, systemen vaak samengesteld zijn uit componenten. Veel
 van deze componenten zijn geschreven in een imperatieve programmeertaal zoals C
-of C++, waardoor een \textit{foreign function interface} met C, en andere
-interfaces naar andere talen vaak noodzakelijk is om de achterwaartse
-comptabiliteit te garanderen\cite{src19}. Echter door de isolationistische
-natuur van functionele talen zijn deze foreign function interface moeilijk
-implementeerbaar is, zeker voor functionele talen die gebruik maken van
-\textit{lazy evaluation}~\cite[p.~149]{src26}.
+of C++. Hierdoor is een \textit{foreign function interface} met C of C++ vaak
+noodzakelijk zijn om de achterwaartse comptabiliteit te garanderen\cite{src19}.
+Echter door de isolationistische natuur van functionele talen zijn deze foreign
+function interfaces moeilijk implementeerbaar en word er vaak nog steeds
+gekozen voor makkelijk koppelbare imperatieve programmeertaal.
 
 \section{Conclusie}
 \label{sec:5}
@@ -560,7 +554,7 @@ voor er paradigmatisch besluit kan worden genomen.
 
   \AppendixItem{Assignment}{
     Een \textit{assignment} stelt de waarde in die is opgeslagen in de
-    opslaglocatie die wordt aangeduid met een variabelenaam.
+    opslaglocatie dat wordt aangeduid met een variabelenaam.
   }
 
 
@@ -664,10 +658,9 @@ voor er paradigmatisch besluit kan worden genomen.
     \end{gather}
 
     Echter doordat de processen op verschillende snelheden kunnen draaien, doet
-    zich een situatie voor, zoals te zien in algoritme~\cref{algo:algo2} waar de
-    volgorde van executie niet wordt uitgevoerd zoals de programmeur had
-    bedoeld. De executie van dit algoritme levert de volgende waardes voor $y$
-    en $z$:
+    zich een situatie voor, zoals te zien in algoritme~\cref{algo:algo2} waar
+    de volgorde van executie niet wordt uitgevoerd zoals de programmeur had
+    bedoeld. De executie van levert de volgende waardes voor $y$ en $z$:
     \begin{gather*}
       y = 4096, z = 2055
     \end{gather}
