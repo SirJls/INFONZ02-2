@@ -7,7 +7,7 @@
 \usepackage[dutch]{babel} % Language hyphenation and typographical rules
 
 \usepackage[
-    backend=biber,
+  backend=biber,
     style=numeric-comp,
   ]{biblatex}
 \addbibresource{main.bib}
@@ -166,16 +166,25 @@
 % Headings within sections.
 % Parameter 1: Section name.
 \newcommand{\AppendixSection}[1]{
-  {
-    \begin{flushleft}
-      \section{\Large#1}}
-      \label{app:#1}
-    \end{flushleft}
-  }
+  \begin{flushleft}
+    \section{\Large#1}
+    \label{app:#1}
+  \end{flushleft}
+}
 
-  % AppendixItem to use within sections.
-  % Parameter 1: Item title/name.
-  % Parameter 2: Context.
+% Headings within subsections.
+% Parameter 1: Subsection name.
+\newcommand{\AppendixSubSection}[1]{
+  \begin{flushleft}
+    \Large#1
+    \label{app:#1}
+    \hline
+  \end{flushleft}
+}
+
+% AppendixItem to use within sections.
+% Parameter 1: Item title/name.
+% Parameter 2: Context.
 \newcommand{\AppendixItem}[2]{
   \textbf{\color{RoyalRed}
   \begin{flushleft}
@@ -184,9 +193,9 @@
   }\par\newline #2}
 
 
-%------------------------------------------------------------------------------
-%	TITLE SECTION
-%------------------------------------------------------------------------------
+  %------------------------------------------------------------------------------
+  %	TITLE SECTION
+  %------------------------------------------------------------------------------
 
 \setlength{\droptitle}{-4\baselineskip} % Move the title up
 
@@ -409,7 +418,7 @@ versie in Haskell zichtbaar.
       }
       while(M < input[R])
       {
-       R--;
+        R--;
       }
 
       if(L <= R)
@@ -420,7 +429,7 @@ versie in Haskell zichtbaar.
         L++;
         R--;
       }
-   } while(L < R);
+    } while(L < R);
 
     if(left < R)
     {
@@ -823,15 +832,15 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & Why functional programming matters \\
-      \hline
+        \hline
         Auteur, Jaar & John hughes, 1989 \\
-      \hline
+        \hline
         URL &
         \href{https://www.researchgate.net/profile/John_Hughes13/publication/2452204_Why_Functional_Programming_Matters/links/00b4952bf430e24d78000000/Why-Functional-Programming-Matters.pdf}{Why
         Functional Programming Matters} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -855,15 +864,15 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & Programming in the Age of Concurrency: Software Transactional Memory \\
-      \hline
+        \hline
         Auteur, Jaar & Simon Peyton Jons Tim Harris, 2017 \\
-      \hline
+        \hline
         URL &
         \href{https://channel9.msdn.com/shows/Going+Deep/Programming-in-the-Age-of-Concurrency-Software-Transactional-Memory/}{Programming
         in the Age of Concurrency: Software Transactional Memory} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -894,14 +903,14 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & The Lambda Calculus: Its Syntax and Semantics \\
-      \hline
+        \hline
         Auteur, Jaar & Henk Barendregt, 1984 \\
-      \hline
+        \hline
         URL &
         \href{https://www.amazon.com/Calculus-Semantics-Studies-Foundations-Mathematics/dp/0444875085}{The Lambda Calculus: Its Syntax and Semantics} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -932,15 +941,15 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & Functional Programming and Embedded Systems \\
-      \hline
+        \hline
         Auteur, Jaar & Malcolm Wallace, 1995 \\
-      \hline
+        \hline
         URL &
         \href{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.29.5561\&rep=rep1\&type=pdf}{Functional
         Programming and Embedded Systems} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -964,15 +973,15 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & Why No One Uses Functional Languages \\
-      \hline
+        \hline
         Auteur, Jaar & Philip Wadler, 1998 \\
-      \hline
+        \hline
         URL &
         \href{https://pdfs.semanticscholar.org/6261/a3935024a4df90e20a6356257ebc808082fa.pdf}{Why
         No One Uses Functional Languages} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -1001,14 +1010,14 @@ voor er paradigmatisch besluit kan worden genomen.
     \begin{table}[htpb]
       \centering
       \begin{tabular}{|l|l|}
-      \hline
+        \hline
         Titel & Scheduling Garbage Collection in Real-time Systems \\
-      \hline
+        \hline
         Auteur, Jaar & Martin Kero \& Simon Aittamaa  \\
-      \hline
+        \hline
         URL &
         \href{https://www.researchgate.net/profile/Simon_Aittamaa/publication/221656661_Scheduling_garbage_collection_in_real-time_systems/links/0c960523b08e35c00e000000/Scheduling-garbage-collection-in-real-time-systems.pdf}{Scheduling Garbage Collection in Real-time Systems} \\
-      \hline
+        \hline
       \end{tabular}
     \end{table}
   }
@@ -1031,6 +1040,421 @@ voor er paradigmatisch besluit kan worden genomen.
   \clearpage
 
   \AppendixSection{Deelopdracht 3}
+
+  \AppendixSubSection{Rapport voor feedback}
+    \AppendixItem{Inleiding}{
+      \lettrine[nindent=0em,lines=3]{V}oor het maken van programma's wordt er gebruik gemaakt van programmeertalen.  Door het gebruik van een programmeertaal is het
+    mogelijk voor een programmeur om een computer te voorzien van instructies en zo
+    de gigantische rekenkracht van het apparaat te benutten. Er zijn door de jaren
+    heen veel programmeertalen ontwikkelt. Sommige revolutionair en vernieuwend,
+    andere een uitbreiding op reeds bestaande talen. Veel van deze programmeertalen
+    delen dezelfde kenmerken en kunnen worden geclassificeerd onder een
+    paradigma.
+
+    Het is daarom van essentieel belang dat een keuze voor een paradigma
+    afhankelijk is van een correcte probleem- of doelstelling. Zo wordt er vanuit
+    de academische en wetenschappelijke hoek al jaren aangezet tot een transitie
+    naar het functionele paradigma, maar worden functionele programmeertalen, zoals
+    Haskell en Lisp vaak als een onconventionele, onwerkbare vorm van software
+    ontwikkeling gezien. Echter wordt er momenteel met de komst van big data en
+    cloud computing een nieuwe effici\"ente manier van dataverwerking toegepast die
+    veelal gebruik maakt van parallel, gelijktijdig en gedistribueerd programmeren.
+
+    Deze oplossingen schikken zich vaak voor een functionele aanpak van het
+    probleem, maar de achterliggende infrastructuur is vaak imperatief en
+    objectgeori\"enteerd waardoor een combinatie veelal uitgesloten is, maar wel
+    wenselijk.
+  }
+
+    \AppendixItem{Middenstuk}{
+      In dit middenstuk zal er een korte uitleg worden gegeven wat de imperatieve en
+    functionele programmeerparadigma's inhouden. Opvolgend zal er worden gekeken
+    naar twee kanten van deze stelling, namelijk de voor en tegenargumentatie.
+
+    Om de plaats van het functionele programmeerparadigma beter te kunnen
+    begrijpen, zal er eerst gekeken moeten worden naar de andere dominante
+    paradigma's in de industrie. De paradigma's die kort besproken zullen worden
+    zijn: het imperatieve en functionele programmeerparadigma.
+  }
+
+    \AppendixItem{Imperatief programmeren}{
+      Imperatief programmeren houdt in dat een programma een structuur beschrijft
+    volgens het Turingmodel. Dit programma wordt door de computer ingelezen in het
+    geheugen om het in kleine delen sequentieel uit te voeren. De tussentijdse
+    berekeningen worden in een imperatieve taal als data opgeslagen in het
+    geheugen. Deze data kan vervolgens worden opgehaald en gemuteerd door elk
+    volgende instructie die toegang heeft tot deze data, totdat er een antwoord
+    wordt gepresenteerd. Imperatieve programmeertalen zijn door deze eigenschap om
+    de huidige staat van het programma aan te passen zeer geschikt voor het
+    programmeren van computer hardware. Zo zijn CPU's imperatieve executie machines
+    en compilers vertalen direct naar deze taal. Dit is de reden dat imperatief
+    programmeren hedendaags de gangbare manier van programmeren is.
+  }
+
+    \AppendixItem{Functioneel programmeren}{
+      Functioneel programmeren is een paradigma dat niet nieuw is, maar al sinds de
+    jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het
+    lambda calculus, wat Turingvolledig is. Kenmerkend voor functioneel
+    programmeren is het programmeren met functies, het vermijden van globale staat,
+    de niet muteerbare data structuren en een executie model waarin de evaluatie
+    volgorde niet uitmaakt.
+  }
+
+    \AppendixItem{Algemene voordelen functioneel programmeren}{
+
+      Nu er kort uitleg is gegeven over imperatieve en functionele talen kunnen we
+    kijken naar de verschillen, in het bijzonder de voor en nadelen. Om de
+    verschillen echter goed te begrijpen is het handig om te weten dat op het
+    moment van schrijven van dit rapport het dominante paradigma in de industrie de
+    imperatieve manier van programmeren is. Het is echter pas sinds kort dat er
+    hernieuwde interesse is ontstaan in de functionele talen vanwege de
+    expressiviteit en het vermogen van deze talen om foutloos gelijktijdig
+    programma's uit te voeren. Deze eigenschappen sluiten heel goed aan bij de
+    belangen van veel bedrijven die met de komst van het internet,
+    cloud computing en big data over data beschikken die zo omvangrijk is dat
+    de traditionele data verwerkingssoftware niet toereikend genoeg is om hiermee
+    om te gaan. De oplossing: het verdelen van de data over verschillende
+    multi-core processoren, zodat er betere prestaties kunnen worden behaald en de
+    verwerking sneller verloopt. Dit heet in de informatica gedistribueerd
+    programmeren.
+
+    Gedistribueerd programmeren is een complex onderwerp in de informatica en niet
+    zonder enige risico's. Doordat er meerdere multi-core processoren aangesproken
+    worden, wat tevens gelijktijdig kan gebeuren, moet er goed nagedacht worden
+    over de evaluatie volgorde. Doordat de aangesproken processoren niet dezelfde
+    throughput hebben zijn uitspraken over ruimte en tijd complexiteit moeilijk
+    voor een programmeur. Zeker als we er vanuit kunnen gaan dat het meest
+    gebruikte paradigma in de industrie de imperatieve stijl van programmeren is.
+    Het imperatief programmeren is inherent sequentieel en data is muteerbaar wat
+    het correct uitvoeren van een programma nog meer bemoeilijkt door eventuele
+    data races. Om data races te voorkomen zijn er in vele imperatieve
+    programmeertalen locks of mutexes ge\"introduceerd met als doel het correct
+    afhandelen van de executievolgorde van een imperatief programma. Echter zijn de
+    ge\"introduceerde oplossingen niet zonder bijwerkingen, denk aan de deadlock.
+
+    Functionele programmeertalen hebben echter veel van deze problemen niet. Zo
+    zijn functionele talen niet afhankelijk van de evaluatie volgorde en zijn er
+    geen locks of mutexes, wat ze uitsluit voor deadlocks. Dit maakt het
+    mogelijk om verschillende stukken van een expressie parallel te evalueren,
+    wat een pre is voor gedistribueerd programmeren. Tevens is de data in de
+    functionele programmeertalen niet muteerbaar, wat inhoudt dat er geen
+    bijwerkingen kunnen ontstaan, waardoor data races niet tot nauwelijks voor
+    kunnen komen in deze talen.
+
+    De functionele programmeertalen zijn ook erg schaalbaar, zo zijn bepaalde
+    algoritmes in functionele programmeertaal vaak minder regels code dan in een
+    imperatieve taal, doordat functionele talen vaak een hogere abstractie
+    hanteren, denk hierbij aan het gebruik van hogere graads functies. Dit zorgt
+    voor een duidelijker en beter herbruikbaar systeem, waar elk stuk code een
+    eigen, gescheiden verantwoordelijkheid heeft, dit heet modulariteit.
+  }
+
+    \AppendixItem{Algemene nadelen functioneel programmeren}{
+      Dat functioneel programmeren tegenwoordig voor steeds meer situaties en
+    problemen een gangbare oplossing is, hebben we besproken. Echter zijn er ook
+    situaties en problemen die zich niet schikken voor een functionele oplossing.
+    E\a'en van deze situaties is als er programma's (ook wel firmware genoemd)
+    moeten worden geschreven voor embedded systemen. Embedded systemen zijn vaak
+    gemaakt voor het uitvoeren van specifieke taken, dit in tegenstelling tot
+    een computer voor algemeen gebruik. Doordat embedded systemen veelal gemaakt
+    zijn voor het uitvoeren van specifieke taken zijn er veel meer
+    processorarchitecturen. Deze grote verschillen in processorarchitectuur en de
+    beperkte interne geheugen die deze chips vaak hebben, maakt ze niet erg
+    geschikt voor het schrijven van firmware in een functionele programmeertaal,
+    aangezien functionele talen meer geheugen gebruiken dan andere paradigma's.
+
+    Ook de garbage collector van de functionele talen kan worden gezien als een
+    enorme beperking aangezien de programmeur het onderliggende geheugen niet kan
+    controleren. Zo zijn de meeste functionele programmeertalen aanzienlijk
+    langzamer zonder een goed geoptimaliseerde compiler ten opzichte van
+    imperatieve programmeertalen. Veel van dit verlies in snelheid kan worden
+    verklaard door de focus op abstractie van de functionele talen. Door dit hogere
+    niveau van programmeren duurt een translatie naar machine code door de compiler
+    vaak langer dan de translatie van imperatieve talen.
+  }
+
+  \AppendixItem{Conclusie} {
+  }
+
+  \clearpage
+
+  \AppendixSubSection{Rapport na feedback}
+
+    \AppendixItem{Inleiding}{
+      \lettrine[nindent=0em,lines=3]{}
+        Voor het maken van programma's wordt er gebruik gemaakt van
+        programmeertalen. Door het gebruik van een programmeertaal is het
+        mogelijk voor een programmeur om een computer te voorzien van
+        instructies en zo de gigantische rekenkracht van het apparaat te
+        benutten. Er zijn door de jaren heen veel programmeertalen ontwikkelt.
+        Sommige revolutionair en vernieuwend, andere een uitbreiding op reeds
+        bestaande talen. Veel van deze programmeertalen delen dezelfde
+        kenmerken en kunnen worden geclassificeerd onder een
+        \texit{'paradigma'}.
+
+        Het is daarom van essentieel belang dat een keuze voor een paradigma
+        afhankelijk is van een correcte probleem- of doelstelling. Zo wordt er
+        vanuit de academische en wetenschappelijke hoek al jaren aangezet tot
+        een transitie naar het functionele paradigma, maar worden functionele
+        programmeertalen, zoals Haskell en Lisp vaak als een onconventionele,
+        onwerkbare vorm van software ontwikkeling gezien. Echter wordt er
+        momenteel met de komst van \textit{big data'} en
+        \textit{'cloud computing'} een nieuwe effici\"ente manier van
+        dataverwerking toegepast die veelal gebruik maakt van parallel,
+        gelijktijdig en gedistribueerd programmeren.
+
+        Deze oplossingen schikken zich vaak voor een functionele aanpak van het
+        probleem, maar de achterliggende infrastructuur is vaak imperatief en
+        objectgeori\"enteerd, waardoor een combinatie veelal uitgesloten is,
+        maar wel wenselijk.
+
+        Dit rapport bekijkt samen met de lezer de voor en nadelen bij de
+        stelling \textit{'Het functionele paradigma is de toekomst.'} Dit
+        gebeurt op basis van een literatuuronderzoek naar de relaties en
+        verschillen van de heersende programmeerparadigma's in de industrie.
+        Het onderzoek beperkt zich tot het imperatieve en functionele
+        paradigma. Om het functionele paradigma en zijn plaats binnen de
+        informatica beter te kunnen begrijpen is er binnen dit onderzoek van
+        een minimale kennisgeving van de heersende programmeerparadigma's in de
+        industrie uitgegaan. Ook is kennis van programmeren wenselijk, maar kan
+        het onderzoek ook prima zonder deze kennis worden gevolgd.
+      }
+
+    \AppendixItem{Middenstuk}{
+      In dit middenstuk zal er een korte uitleg worden gegeven wat de imperatieve
+    en functionele programmeerparadigma's inhouden. Opvolgend zal er worden 
+    gekeken naar twee kanten van deze stelling, namelijk de voor en 
+    tegenargumentatie.
+
+    Om de plaats van het functionele programmeerparadigma beter te kunnen 
+    begrijpen, zal er eerst gekeken moeten worden naar de andere dominante 
+    paradigma's in de industrie. De paradigma's die kort besproken zullen 
+    worden zijn: het imperatieve en functionele programmeerparadigma.
+  }
+
+    \AppendixItem{Imperatief programmeren}{
+      Imperatief programmeren houdt in dat een programma een structuur
+      beschrijft volgens het Turing-model. Dit programma wordt door de computer
+      ingelezen in het geheugen om het in kleine delen \textit{'sequentieel'}
+      uit te voeren. De tussentijdse berekeningen worden in een imperatieve
+      taal als data opgeslagen in het geheugen. Deze data kan vervolgens worden
+      opgehaald en \textit{'gemuteerd'} door elk volgende instructie dit
+      toegang heeft tot deze data, totdat er een antwoord wordt gepresenteerd.
+      Imperatieve programmeertalen zijn door deze eigenschap om de huidige
+      staat van het programma aan te passen zeer geschikt voor het programmeren
+      van computer hardware. Zo zijn CPU's imperatieve executie machines en
+      compilers vertalen direct naar deze taal. Dit is de reden dat imperatief
+      programmeren hedendaags de gangbare manier van programmeren is.
+    }
+
+    \AppendixItem{Functioneel programmeren}{
+      Functioneel programmeren is een paradigma dat niet nieuw is, maar al
+      sinds de jaren 40 bestaat. Het is een paradigma wat is ontstaan uit het
+      \textit{'lambda calculus'}, wat Turingvolledig is. Kenmerkend voor
+      functioneel programmeren is het programmeren met functies, het vermijden
+      van globale staat, de niet muteerbare data structuren en een executie model
+      waarin de evaluatie volgorde niet uitmaakt.
+    }
+
+    \AppendixItem{Algemene voordelen functioneel programmeren}{
+      Nu er kort uitleg is gegeven over imperatieve en functionele talen kunnen
+      we kijken naar de verschillen, in het bijzonder de voor en nadelen. Om de
+      verschillen echter goed te begrijpen is het handig om te weten dat op het
+      moment van schrijven van dit rapport het dominante paradigma in de
+      industrie de imperatieve manier van programmeren is. Het is echter pas
+      sinds kort dat er hernieuwde interesse is ontstaan in de functionele
+      talen vanwege de expressiviteit en het vermogen van deze talen om
+      foutloos gelijktijdig programma's uit te voeren. Deze eigenschappen
+      sluiten heel goed aan bij de belangen van veel bedrijven die met de komst
+      van het internet, \textit{'cloud computing'} en \textit{'big data'} over
+      data beschikken die zo omvangrijk is dat de traditionele data
+      verwerkingssoftware niet toereikend genoeg is om hiermee om te gaan. De
+      oplossing: het verdelen van de data over verschillende multi-core
+      processoren, zodat er betere prestaties kunnen worden behaald en de
+      verwerking sneller verloopt. Dit heet in de informatica gedistribueerd
+      programmeren.
+
+      Gedistribueerd programmeren is een complex onderwerp in de informatica
+      niet zonder enige risico's. Doordat er meerdere multi-core processoren
+      aangesproken worden, wat tevens gelijktijdig kan gebeuren, moet er goed
+      nagedacht worden over de evaluatie volgorde. Doordat de aangesproken
+      processoren niet dezelfde \textit{'throughput'} hebben zijn uitspraken
+      over ruimte en tijd complexiteit moeilijk voor een programmeur. Zeker als
+      we er vanuit kunnen gaan dat het meest gebruikte paradigma in de
+      industrie de imperatieve stijl van programmeren is. Het imperatief
+      programmeren is inherent sequentieel en data is muteerbaar wat het
+      correct uitvoeren van een programma nog meer bemoeilijkt door eventuele
+      \textit{'data races'}. Om data races te voorkomen zijn er in vele
+      imperatieve programmeertalen \textit{'locks'} of \textit{'mutexes'}
+      ge\"introduceerd, met als doel het correct afhandelen van de
+      executievolgorde van een imperatief programma. Echter zijn de
+      ge\"introduceerde oplossingen niet zonder bijwerkingen, denk aan de
+      \textit{'deadlock'}.
+
+      Functionele programmeertalen hebben echter veel van deze problemen niet.
+      Zo zijn functionele talen niet afhankelijk van de evaluatie volgorde en
+      zijn er geen \textit{'locks'} of \textit{'mutexes'}, wat ze uitsluit voor
+      \textit{'deadlocks'}. Dit maakt het mogelijk om verschillende stukken van
+      een \textit{'expressie'} parallel te evalueren, wat een pre is voor
+      gedistribueerd programmeren. Tevens is de data in de functionele
+      programmeertalen niet muteerbaar, wat inhoudt dat er geen bijwerkingen
+      kunnen ontstaan, waardoor data \textit{'races'} niet tot nauwelijks voor
+      kunnen komen in deze talen.
+
+      De functionele programmeertalen zijn ook erg schaalbaar, zo zijn bepaalde
+      algoritmes in functionele programmeertaal vaak minder regels code dan in
+      een imperatieve taal, doordat functionele talen vaak een hogere
+      abstractie hanteren, denk hierbij aan het gebruik van \textit{'hogere
+      graads functies'}. Dit zorgt voor een duidelijker en beter herbruikbaar
+      systeem, waar elk stuk code een eigen, gescheiden verantwoordelijkheid
+      heeft, dit heet modulariteit.
+    }
+
+    \AppendixItem{Algemene nadelen functioneel programmeren}{
+
+      Functioneel programmeren kent zo echter ook zijn programmeertalen zijn er
+      nadelen wat betreft het gebruik van functioneel programmeren. Zo zijn
+      vrijwel vaak functionele programmeertalen langzamer ten opzichte van
+      imperatieve programmeertalen, aangezien deze talen focussen op
+      abstractie, waardoor de programmeur minder mogelijkheden heeft om direct
+      het onderliggende geheugengebruik te controleren.
+
+      Ook maken de meeste functionele programmeertalen gebruik van static type
+      checking. Wanneer een verkeerd type variabele wordt gebruikt, zal het
+      programma niet werken.
+
+      Waar in andere programmeerparadigma's veel gebruik kan worden gemaakt van
+      libraries, is dit bij functioneel programmeren niet/minder vaak het
+      geval, op een paar libraries na.
+
+      Wat bij programmeren tot \'e\'en van de meest belangrijke zaken behoort,
+      is portability. Dit is niet het geval bij programma's geschreven in een
+      functionele programmeertaal. Omdat het omzetten hiervan erg lastig is.
+
+      Ook het gebruik van programma's gebouwd met functionele programmeertalen,
+      kunnen nadelig zijn. Omdat er allerlei extra bestanden worden bijgeleverd
+      om het programma te kunnen gebruiken, kost dit ook meer qua werkgeheugen,
+      wat betekent dat daar ook rekening mee moet worden gehouden, met het
+      kiezen van functionele talen over object geori\"enteerd.
+    }
+
+    \AppendixItem{Conclusie}{
+    }
+
+    \clearpage
+
+  \AppendixSection{Deelopdracht 4}
+
+  \AppendixSubSection{Persoonlijke evaluatie Sjors Sparrebooom}
+
+    \AppendixItem{Beoordeling eigen functioneren}{
+      Uitmuntend, ik ben erg betrokken geweest bij de opdracht en heb veel
+      mensen het artikel laten nalezen. Daarnaast vind ik het een interessant
+      onderzoeksgebied, wat hielp bij het lezen van de bronnen en heb mijzelf
+      dus erg verdiept.
+    }
+
+    \AppendixItem{Belangrijkste zaken ontwikkeling}{
+      Het schrijven van een goed rapport/onderzoek/factchecker en het
+      structuren en aanpakken hiervan.
+
+      Veel geleerd van het volgende
+      \href{https://www.youtube.com/watch?v=VK51E3gHENc}{artikel}: \textit{'How
+      to write a great research paper'}.
+    }
+
+    \AppendixItem{Beheersing}{
+      Ik vind persoonlijk dat ik alle vaardigheden benodigd voor dit vak
+      beheers, dit blijkt dan ook zeker uit het eindresultaat.
+    }
+
+    \AppendixItem{Welk cijfer voor de opdracht}{
+      Een 9! Een 10 vertelt namelijk dat er geen mogelijkheid is voor
+      verbetering, maar dat is er altijd, maar dat neemt niet weg dat ik zeer
+      trots ben op het artikel.
+
+      Zo vind ik het artikel HBO waardig, het heeft een sterke inhoud, goede
+      bronnen en een goede structuur/opbouw. Ik heb er dan ook veel tijd en
+      ingestoken en het eindresultaat mag er van mij dan ook wezen.
+    }
+
+    \AppendixItem{Beoordeling teamgenoot}{
+      Ik hoop dat alles goed gaat met Johan, want ik heb de laatste weken
+      namelijk niets van hem gehoord en maak mij dus ook een beetje zorgen.
+
+      Johan geen pro actieve houding helaas en de benaderings pogingen die ik
+      heb gedaan kreeg ik geen of nauwelijks antwoord op.
+
+      Dus over de verdeling kan ik het volgende zeggen:
+      De verdeling en werkinspanning ziet u in~\cref{tab:work}.
+      \begin{table}[htpb]
+        \centering
+        \caption{Verdeling}
+        \label{tab:work}
+          \begin{tabular}{|l|l|}
+            \hline
+            Sjors & 90\% \\
+            \hline
+            Johan & 10\% \\
+            \hline
+          \end{tabular}
+      \end{table}
+    }
+
+    \clearpage
+
+    \AppendixItem{Oordeel opdracht}{
+      Zelf vind ik het een leuke opdracht, het schrijven van een \textbf{GOED}
+      research rapport is niet vervelend. Een interessant onderwerp, en een
+      goede aanleiding kunnen zeker helpen met het schrijven van een
+      interessant artikel.
+
+      Echter was de manier zoals school je wil voorbereiden op je scriptie,
+      door middel van een zogeheten \textit{'factchecker'} een minder goede
+      bijdragen aan de algehele waarde van deze cursus.
+
+      Ook kwamen de deelopdrachten kinderachtig over op mij. Aangezien ze
+      compleet geen meerwaarde hadden voor het schrijven van het artikel
+      (factchecker). Naast de vreselijke deelopdrachten zaten we ook nog met
+      oudbollige youtube links, die studenten moesten helpen met het schrijven
+      van een goed artikel.
+
+      Als alternatief voor de oudbollige links raadt ik de volgende
+      \href{https://www.youtube.com/watch?v=VK51E3gHENc}{link} aan van
+      professor Simon Peyton Jones.
+
+     Honours \& awards van de spreker in de video: Simon Peyton Jones.\\\\
+
+    \textbf{Fellowships}
+
+     \begin{itemize}
+       \item Fellow of the Royal Society (2016)
+       \item Distinguished Fellow of the BCS (2017)
+       \item Distinguished Fellow of the BCS (2017)
+     \end{itemize}
+
+    \textbf{Received the following honorary degrees:}
+
+    \begin{itemize}
+      \item Honorary DSc from the University of Glasgow (2013); Muffy Calder’s oration
+      \item Honorary DEd from the University of Bath (2017); Chris Budd’s oration; video
+      \item Honorary DSc from the University of Kent, Canterbury (2017)
+      \item Honorary DSc from the Queen Mary University of London (2017)
+    \end{itemize}
+    \textbf{Awards}
+
+    \begin{itemize}
+      \item The 2016 ACM SIGPLAN Programming Languages Achievement Award
+      \item The 2016 ACM SIGPLAN Most Influential ICFP Paper Award (shared with Dimitrios Vytiniotis, Stephanie Weirich, and Geoffrey Washburn)
+      \item The 2015 ACM SIGPLAN Most Influential ICFP Paper Award (shared with Manuel M. T. Chakravarty and Gabriele Keller)
+      \item The 2014 ACM SIGPLAN Distinguished Service Award
+      \item The 2014 ACM SIGPLAN Most Influential ICFP Paper Award (shared with Ralf L\"ammel)
+      \item The 2011 ACM SIGPLAN Programming Languages Software Award (shared with Simon Marlow)
+      \item The 2003 ACM SIGPLAN Most Influential POPL Paper Award (shared with Philip Wadler)
+    \end{itemize}
+  }
+
+
 
 \end{appendices}
 
