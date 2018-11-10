@@ -15,31 +15,48 @@
 \usepackage{csquotes}
 
 \usepackage{listings}
-\lstdefinelanguage{Lambda}{%
-  morekeywords={%
-    if,then,else,fix % keywords go here
-  },%
-  morekeywords={[2]int,string},   % types go here
-  otherkeywords={:}, % operators go here
-  literate={% replace strings with symbols
-    {->}{{$\to$}}{2}
-    {lambda}{{$\lambda$}}{1}
-  },
-  basicstyle={\sffamily},
-  keywordstyle={\bfseries},
-  keywordstyle={[2]\itshape}, % style for types
-  keepspaces,
-  mathescape % optional
-}[keywords,comments,strings]%
-\lstdefinestyle{CStyle}{language=C,frame=t,basicstyle=\scriptsize}
-\lstdefinestyle{HsStyle}{language=Haskell,frame=b,basicstyle=\scriptsize}
-\lstdefinestyle{LambdaStyle}{
-  language=Lambda,
-  frame=bt,
-  basicstyle=\scriptsize,
-  numberstyle=\tiny,
-  numbersep=0pt,
-}
+% \lstdefinelanguage{Lambda}{%
+%   morekeywords={%
+%     if,then,else,fix % keywords go here
+%   },%
+%   morekeywords={[2]int,string},   % types go here
+%   otherkeywords={:}, % operators go here
+%   literate={% replace strings with symbols
+%     {->}{{$\to$}}{2}
+%     {lambda}{{$\lambda$}}{1}
+%   },
+%   basicstyle={\sffamily},
+%   keywordstyle={\bfseries},
+%   keywordstyle={[2]\itshape}, % style for types
+%   keepspaces,
+%   mathescape % optional
+% }[keywords,comments,strings]%
+% \lstdefinestyle{CStyle}{language=C,frame=t,basicstyle=\scriptsize}
+% \lstdefinestyle{HsStyle}{language=Haskell,frame=b,basicstyle=\scriptsize}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\linewidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\lstdefinestyle{framed}
+{
+     frame=lrb,         
+     basicstyle=\scriptsize,
+     belowcaptionskip=-1pt,
+     xleftmargin=8pt,
+     framexleftmargin=8pt,
+     framexrightmargin=5pt,
+     framextopmargin=5pt,
+     framexbottommargin=5pt,
+     framesep=0pt,
+     rulesep=0pt,
+ }
+% \lstdefinestyle{LambdaStyle}{
+%   language=Lambda,
+%   frame=bt,
+%   basicstyle=\scriptsize,
+%   numberstyle=\tiny,
+%   numbersep=0pt,
+% }
 
 \lstset{
   language=Lambda,
@@ -198,9 +215,9 @@
 \normalsize Hogeschool Rotterdam \\ % Your institution
 \normalsize \href{mailto:0890040@hr.nl}{0890040@hr.nl} \\[2ex] % Your email address
 %\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
-\textsc{Johan Bos} \\[1ex] % Second author's name
-\normalsize Hogeschool Rotterdam \\ % Second author's institution
-\normalsize \href{mailto:0878090@hr.nl}{0878090@hr.nl} % Second author's email address
+% \textsc{other author} \\[1ex] % Second author's name
+% \normalsize Institution \\ % Second author's institution
+% \normalsize \href{mailto:email@email.com}{email@email.com} % Second author's email address
 }
 \date{\today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
@@ -379,7 +396,7 @@ functies van oude afgeleid worden en maakt een functionele taal erg schaalbaar.
 
 Door deze schaalbaarheid is het gemakkelijker modulair software te schrijven.
 Deze manier van software maken wordt volgens vele al jaren lang beschouwt als
-\'e\'n van de belangrijkste punten in het construeren van herbruikbare en
+\'e\'en van de belangrijkste punten in het construeren van herbruikbare en
 onderhoudbare software~\cite{src17}. Zo spreken ook~\textcite{src18} hun
 voorkeur uit over de modulaire aanpak van het ontwerpen van software, omdat er
 hierdoor toekomstige legacy problemen kunnen worden voorkomen; hierover meer
@@ -390,11 +407,13 @@ Modulair programmeren is dus een pre, maar wat is een module nu precies?
 collectie van gerelateerde functies, types en typeclasses}. Wat types en
 typeclasses zijn is in dit document niet relevant. Wat wel relevant is dat door
 de modulariteit en schaalbaarheid van functionele programma's veel algoritmes
-vaak korter zijn dan in een imperatief programma. Zo zijn hieronder twee
-versies van quicksort; een imperatieve versie in C en een functionele
-versie in Haskell zichtbaar.
+vaak korter zijn dan in een imperatief programma. Een voorbeeld hiervan is
+direct zichtbaar in de implementatie van quicksort. In
+listing~\cref{lst-quicksort-c}  zien we een imperatieve versie van quicksort en
+in listing~\cref{lst-quicksort-hs} zien we de functionele tegenhanger. 
 
-\begin{lstlisting}[style=CStyle]
+\begin{lstlisting}[style=framed, label=lst-quicksort-c, caption=QuickSort in C]
+
   void Sort(int input[],int left,int right)
   {
     int L = left;
@@ -436,10 +455,12 @@ versie in Haskell zichtbaar.
   {
     Sort(input, 0, length - 1);
   }
-}
 \end{lstlisting}
 
-\begin{lstlisting}[style=HsStyle]
+\pagebreak
+
+\begin{lstlisting}[style=framed, label=lst-quicksort-hs, caption=QuickSort in Haskell]
+
 quicksort :: Ord a => [a] -> [a]
 quicksort []     = []
 quicksort (p:xs) =
@@ -449,11 +470,19 @@ quicksort (p:xs) =
         greater = filter (>= p) xs
 \end{lstlisting}
 
-Wat uit het bovengenoemde voorbeeld opvalt is dat de functionele versie veel
+Wat uit het bovengenoemde voorbeeld opvalt is dat de functionele versie 
 duidelijker en expressiever is, dan de imperatieve versie. In de imperatieve
 versie is de bedoeling van het programma niet gelijk duidelijk en moet er
 sequentieel over het programma worden gelopen om te begrijpen wat de bedoeling
-ervan is.
+ervan is. Bij de functionele tegenhanger van dit algorithme is dit probleem niet
+aanwezig. Deze onduidelijkheid wordt in dit geval weggenoemen door de
+aanwezigheid van een type
+signature~\textit{\lstinline{quicksort :: Ord a => [a] -> [a]}}, wat ons het
+volgende vertelt: quicksort is een functie, wat 1 argument neemt van het type
+een lijst van a's, en als uitkomt ons een lijst van a's terug geeft, met als
+enige restrictie heeft dat het lid is van de type class Ord. Wat een type class
+inhoud is echter buiten bereik van dit document. Daarnaast is het programma
+kleiner, waardoor het automatisch makkelijker leesbaarder wordt.
 
 %------------------------------------------------------------------------------
 
@@ -522,7 +551,7 @@ gekozen voor makkelijk koppelbare imperatieve programmeertaal.
 In dit document is er gediscussieerd over de voordelen en nadelen van het
 functioneel programmeren. In~\cref{sec:3} wordt duidelijk dat met de komst van
 het internet en de ontwikkelingen op hardware gebied er nieuwe interesse is
-voor functioneel programmeren.
+ontstaan voor functioneel programmeren.
 
 De schaalbaarheid, modulariteit, niet muteerbare datastructuren en het inherent
 vermogen om parallel expressies te evalueren maakt functioneel programmeren een
@@ -534,9 +563,14 @@ van programmeren de toekomst is. Zo is er nog steeds geen functionele opmars
 zichtbaar in de embedded systems hoek en worden legacy problemen in grote
 commerci\"ele software systemen nog altijd imperatief opgelost.
 
-Er is een glansrijke toekomst voor de functionele stijl van programmer, maar
-vooralsnog moet er goed gekeken worden naar de probleemstelling en het doel
-voor er paradigmatisch besluit kan worden genomen.
+De toekomst voor de functionele stijl van programmeren is veelbelovend en door
+de verbeteringen in hardware en de toenemende complexiteit van de programma's
+zien we dat veel wetenschappers en hedendaags ook steeds meer bedrijven kiezen
+voor een functionele oplossing van het probleem. Echter zal er goed moet worden
+gekeken naar het probleem en de context waarin deze zich bevindt, omdat
+het functionele paradigma niet voor elke situatie kan bijdragen aan een solide
+oplossing~\cref{subsec:4-2}.
+
 
 %------------------------------------------------------------------------------
 %	REFERENCE LIST
